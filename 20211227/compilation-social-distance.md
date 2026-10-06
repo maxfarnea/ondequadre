@@ -27,4 +27,4 @@ ed essendo stati soddisfatti i requisiti della licenza, va benissimo così e mi
 fa piacere.  
 Potete ascoltarla e scaricarla cliccando sull'immagine qui sotto.
   
-[![](../imgs/cover.jpg)](https://archive.org/details/v-a-social-distance-cyberpunk-age)
+[![](../imgs/cover-social-distance.jpg)](https://archive.org/details/v-a-social-distance-cyberpunk-age)
