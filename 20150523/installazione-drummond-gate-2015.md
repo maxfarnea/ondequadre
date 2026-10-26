@@ -32,6 +32,5 @@ Questo progetto non vuole essere un altro simulatore di sintetizzatore ANS; si c
 
 - il suono non viene prodotto a partire dalle frequenze con le quali i fasci di luce sono modulati e che sono generate a monte dalla luce stessa, ma è sintetizzato da una libreria virtual-analog da centinaia di oscillatori le cui frequenze dipendono dai valori RGB dei vari pixel. Anche in questo caso l'approccio programmatico permette anche di sperimentare diverse forme d'onda per le singole componenti frequenziali, oltre che potenzialmente poter implementare modulazioni più sofisticate o filtri ed effetti audio.
 
-  
 
-[![](../imgs/Cattura.PNG)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg99ojTpjU2Tr8sOwv3fDpPEJeygkChVQpqrx2KIXavBMJkDkqnytmqaZQHzpz_k0Fyvm47KkDqF2gqpQo-efiHRGIIAEFSzaPXJNMJ6R8VEEvP9xCgOQjVNtfyPCXf0Ik_HXYukfsVGDg/s1600/Cattura.PNG)
+![](../imgs/Cattura.PNG)

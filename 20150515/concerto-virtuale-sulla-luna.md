@@ -24,8 +24,5 @@ Mi ha affascinato molto l'immaginario utopico e futurista che caratterizza quest
 Spero vi piaccia l'abbinamento tra la mia musica e queste immagini.  
   
 Fate buon viaggio.
-  
-
-  
 
 [![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=LCjdt2K15kY)

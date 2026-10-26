@@ -43,7 +43,7 @@ Una seconda regola di sicurezza ci impone di **non permettere mai alla corrente 
 
 #### Materiale  
 
-![Three alligator clips](../imgs/256px-Three_alligator_clips.JPG)
+![Three alligator clips](../imgs/alligator-clips.png)
 
 Dovendo smontare piccoli apparecchi elettrici serve un set di cacciaviti adeguati, magari anche per viti Torx che sono sempre più diffuse. Sono anche essenziali dei **morsetti a coccodrillo** per fare le prime prove con collegamenti volanti.  
 Poi  sarà necessario fare anche delle saldature, quindi è meglio procurarsi un saldatore a stilo, occhiali di protezione, stagno, una pinzetta e una forbice spelafili da elettricisti. Infine si deve mettere in preventivo il materiale elettrico necessario per finalizzare le modifiche che vorremo fare: interuttori, pulsanti, potenziometri, prese jack, contatti elettrici. 
@@ -73,7 +73,7 @@ In genere si inizia collegando un morsetto a un filo dell'alimentazione e in seg
 
 Per finalizzare i suoni scoperti si devono saldare dei pezzi di filo nei punti che avevamo toccato e segnato con il pennarello. A questo punto abbiamo diverse opzioni:  se l'effetto lo avevamo ottenuto toccando il circuito con le dita, allora possiamo fissare a fili delle borchie o dei piccoli bulloni di ferro (io ad esempio mi trovo bene con degli economici **fermacampione**) in modo da poterli fissare alla scocca del giocattolo e toccarli con le dita di una mano; alternativamente si possono saldare interruttori o pulsanti per abilitare le modifiche quando si desidera; infine si può montare un potenziometro o una **fotoresistenza **qualora l'effetto della nostra modifica si possa modificare al variare della resistenza. La fotoresistenza presenta 2 soli terminali come una resistenza normale, solo che essa è trasparente e la sua resistenza varia in funzione della quantità di luce che la investe.  
 
-Poi per collegare il giocattolo al mixer o a un amplificatore si può per prima cosa microfornarlo come fosse uno strumento acustico, basta anche con un piccolo microfono tipo quelli per PC montato direttamente sopra l'altoparlante o dietro, dentro la scocca. In alternativa **si può saldare un connettore audio jack femmina al posto dell'altoparlante**, magari aggiungendo anche un potenziometro per regolare il livello del volume secondo il seguente schema:  
+Poi per collegare il giocattolo al mixer o a un amplificatore si può per prima cosa microfonarlo come fosse uno strumento acustico, basta anche con un piccolo microfono tipo quelli per PC montato direttamente sopra l'altoparlante o dietro, dentro la scocca. In alternativa **si può saldare un connettore audio jack femmina al posto dell'altoparlante**, magari aggiungendo anche un potenziometro per regolare il livello del volume secondo il seguente schema:  
  
 ![](../imgs/audio+pot.jpg)
 
