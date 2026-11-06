@@ -16,7 +16,7 @@ translations: macchina-harmoniosa.en
 
 ---
 
-Macchina Harmoniosa è un piccolo sequencer/arpeggiatore MIDI generativo basato su Arduino, come tanti che si vedono in azione su YouTube, ma con qualche caratteristica in più. E come tutti i progetti che mi piacciono, comincia da un pezzo di surplus elettronico: la sua tastiera viene da un vecchio registratore di cassa di una ristorante pizzeria, recuperata e riciclata. 88 tasti, otto righe per undici colonne, gestiti tramite due moduli demultiplexer collegati ad Arduino. Sopra ci ho montato un display LCD 16x2 e, visto che il sequencer lavora su due tracce, due uscite MIDI.
+Macchina Harmoniosa è un piccolo sequencer/arpeggiatore MIDI generativo basato su Arduino, come tanti che si vedono in azione su YouTube, ma con qualche caratteristica in più. E come tutti i progetti che mi piacciono, comincia da un pezzo di surplus elettronico: la sua tastiera viene da un vecchio registratore di cassa di un ristorante pizzeria, recuperata e riciclata. 88 tasti, otto righe per undici colonne, gestiti tramite due moduli demultiplexer collegati ad Arduino. Sopra ci ho montato un display LCD 16x2 e, visto che il sequencer lavora su due tracce, due uscite MIDI.
 
 L'ispirazione per costruirla mi è venuta ascoltando ***Vertical*** di **Caterina Barbieri**: un album fatto di pattern minimisti che si ripetono e si trasformano con una pazienza ipnotica. Ascoltandolo, a un certo punto, non ho più voluto solo ascoltare quegli arabeschi di note: ho voluto uno strumento che me li facesse costruire.
 
@@ -38,7 +38,7 @@ Ho implementato 3 modalità di funzionamento:
 
 - **modalità pattern**: il pattern gira in loop, e lo puoi rigenerare o variare a mano quando vuoi;
 - **modalità verticale**: gli step sostengono le note invece di spegnerle, verso una musica verticale, fatta di droni e strati;
-- **modalità frattale*: la macchina, al termine di ogni brano (lunghezza configurabile in blocchi), autorigenera il pattern applicando da sola il tipo di variazione scelto: da semplici trasposizioni di singole note fino alla rigenerazione completa. Ogni brano è figlio del precedente e di un po' di rumore.
+- **modalità frattale**: la macchina, al termine di ogni brano (lunghezza configurabile in blocchi), autorigenera il pattern applicando da sola il tipo di variazione scelto: da semplici trasposizioni di singole note fino alla rigenerazione completa. Ogni brano è figlio del precedente e di un po' di rumore.
 
 I pattern si salvano e caricano dalla **EEPROM** di Arduino, in sedici bank.
 
