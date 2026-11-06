@@ -29,4 +29,4 @@ Il sequencer luminoso, posto davanti alla maschera da un braccio del manichino, 
 L'installazione è interattiva in quanto è possibile interfetire direttamente con la generazione sonora stimolando i sensori ottici con una fonte di luce esterna manovrata dal visitatore come ad esempio una lampada portatile, dei LED stroboscopici o lo schermo retroilluminato di uno smartphone.
 
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=oWr1EeRlnSQ)
+[![](https://img.youtube.com/vi/oWr1EeRlnSQ/hqdefault.jpg)](https://www.youtube.com/watch?v=oWr1EeRlnSQ)

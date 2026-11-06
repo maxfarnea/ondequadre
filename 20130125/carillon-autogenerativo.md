@@ -75,7 +75,7 @@ Uscite digitali per pilotare solenoidi o servomotori a tempo di musica.
 
 Implementazione di un approccio microtonale.
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=XCt9-f3kTwc)
+[![](https://img.youtube.com/vi/XCt9-f3kTwc/hqdefault.jpg)](https://www.youtube.com/watch?v=XCt9-f3kTwc)
 
 **Scaricate il progetto qui**: [autocarillion_20171119.zip](https://drive.google.com/open?id=1zxxcqw6c4hkAz1sPAUXPeEl9tLGii8Qt)
 

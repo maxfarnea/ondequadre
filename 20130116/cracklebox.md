@@ -20,7 +20,7 @@ translations: cracklebox.en
 Con il termine **Cracklebox** (o **Kraakdoos**) si intende un tipo particolare di dispositivo audio sperimentale introdotto da **Michel Waisvisz** a metà degli anni 70. Michel Waisvisz insieme a **Reed Ghazala** può essere considerato a tutti gli effetti il pioniere del circuit bending e infatti la Cracklebox è un chiaro esempio applicativo di questa tecnica.  
 La particolarità di questo strumento consiste nel fatto che la generazione del suono dipende esclusivamente dall'interazione con il corpo umano, il quale è parte del circuito stesso. Questa interazione non è pericolosa in quanto questo dispositivo (come tutti quelli del contesto del circuit bending) è alimentato con una batteria e l'intensità delle correnti in gioco è veramente irrisoria. Dipendendo dalla conduttività locale della pelle umana, i rumori gracchianti e striduli (crackle) prodotti variano da persona a persona (e anche nel tempo), rendendo così le performance sempre uniche tra loro. 
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=EO96lK0Fvx4)
+[![](https://img.youtube.com/vi/EO96lK0Fvx4/hqdefault.jpg)](https://www.youtube.com/watch?v=EO96lK0Fvx4)
 
 [![Crackle Box](../imgs/Crackle_Box.jpg)](https://commons.wikimedia.org/wiki/File%3ACrackle_Box.jpg)
   
@@ -35,13 +35,13 @@ Ma non serve spendere molto per avere queste sonorità. Chi ha sperimentato con 
   
 Si possono anche progettare ad hoc circuiti di semplici amplificatori molto sensibili e oscillatori controllati in tensione e dotarli di contatti metallici in modo da interferire con essi toccandoli. Questo approccio è utilizzato da svariati kit che si trovano in commercio per realizzare circuiti espressamente dedicati alla generazione di questo tipo di sonorità.  
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=JqiFxnvUBb0)
+[![](https://img.youtube.com/vi/JqiFxnvUBb0/hqdefault.jpg)](https://www.youtube.com/watch?v=JqiFxnvUBb0)
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=p0VAw_YX78Y)
+[![](https://img.youtube.com/vi/p0VAw_YX78Y/hqdefault.jpg)](https://www.youtube.com/watch?v=p0VAw_YX78Y)
 
 Io sono riuscito a reperire un paio di 709, con i quali ho realizzato due circuiti Cracklebox. Uno l'ho inserito nel mio sistema modulare sperimentale, The Sound Destruction Unit, mentre il secondo l'ho abbinato ad una **Atari Punk Console** creando il mio **Tamagotchi Mannaro**. Questi miei strumenti sperimentali e l'Atari Punk Console saranno descritti dettagliamente nei prossimi post, intanto vi lascio qualche anteprima.  
 
 ![](../imgs/DSCN0275.jpg)
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=1hhTcrgn7l0)
+[![](https://img.youtube.com/vi/1hhTcrgn7l0/hqdefault.jpg)](https://www.youtube.com/watch?v=1hhTcrgn7l0)
 

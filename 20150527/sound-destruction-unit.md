@@ -27,9 +27,9 @@ Sebbene io abbia cercato nei limiti del possibile di rendere affidabili i circui
   
 E' un dispositivo molto personale, che non potrò mai replicare, difficile da domare per un utilizzo in studio, ma perfetto per una performance live.
   
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=1hhTcrgn7l0)
+[![](https://img.youtube.com/vi/1hhTcrgn7l0/hqdefault.jpg)](https://www.youtube.com/watch?v=1hhTcrgn7l0)
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=1hhTcrgn7l0)
+[![](https://img.youtube.com/vi/Es3ATQ5TRTc/hqdefault.jpg)](https://www.youtube.com/watch?v=Es3ATQ5TRTc)
 
 Registrando delle improvvisazioni live eseguite esclusivamente con questo strumento, alle quali ho aggiunto solo un riverbero esterno, ho realizzato un EP gratuito completamente sperimentale distributo da **ManyFeetUnder HomeMadeLabel** che potete ascoltare e scaricare cliccando l'immagine qui sotto.    
 

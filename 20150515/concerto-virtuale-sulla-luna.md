@@ -25,4 +25,4 @@ Spero vi piaccia l'abbinamento tra la mia musica e queste immagini.
   
 Fate buon viaggio.
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=LCjdt2K15kY)
+[![](https://img.youtube.com/vi/LCjdt2K15kY/hqdefault.jpg)](https://www.youtube.com/watch?v=LCjdt2K15kY)

@@ -38,4 +38,4 @@ Esistono diversi emulatori di questo strumento o del suo principio di funzioname
 
   
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=YWIjFs-Zdus)
+[![](https://img.youtube.com/vi/YWIjFs-Zdus/hqdefault.jpg)](https://www.youtube.com/watch?v=YWIjFs-Zdus)

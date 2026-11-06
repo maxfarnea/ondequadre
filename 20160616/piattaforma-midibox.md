@@ -40,10 +40,10 @@ Questa continua evoluzione però non deve far pensare a un'architettura instabil
 
 Detto tutto questo vi rimando al sito [uCApps.de](http://ucapps.de/) dove è ospitato tutto il progetto MIDIbox e vi lascio con alcuni video di sistemi realizzati dagli utenti.   
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=txL9l7fI0P4)
+[![](https://img.youtube.com/vi/txL9l7fI0P4/hqdefault.jpg)](https://www.youtube.com/watch?v=txL9l7fI0P4)
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=Z3d6U9ahh_E)
+[![](https://img.youtube.com/vi/Z3d6U9ahh_E/hqdefault.jpg)](https://www.youtube.com/watch?v=Z3d6U9ahh_E)
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=i-ClNqM_2eE)
+[![](https://img.youtube.com/vi/i-ClNqM_2eE/hqdefault.jpg)](https://www.youtube.com/watch?v=i-ClNqM_2eE)
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=8vuJAJr3PjQ)
+[![](https://img.youtube.com/vi/8vuJAJr3PjQ/hqdefault.jpg)](https://www.youtube.com/watch?v=8vuJAJr3PjQ)

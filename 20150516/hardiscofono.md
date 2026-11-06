@@ -34,7 +34,7 @@ Così è nato l'hardiscofono (o ardiscofono): un insieme di 12 harddisk montati 
 Premendo uno dei tasti si fa riprodurre a uno dei dischi un segnale generato da un oscillatore. Ogni tasto è associato ad un singolo disco e genera una specifica frequenza che può essere accordata in modo indipendente con un trimmer abbinato ad ogni tasto.  
 
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=TOMGKLSY2wo)
+[![](https://img.youtube.com/vi/TOMGKLSY2wo/hqdefault.jpg)](https://www.youtube.com/watch?v=TOMGKLSY2wo)
 
 Questo strumento è ancora un work in progress, anche se l'ho già utilizzato ad esempio nella parte finale di Hardiscophone, che potete ascoltare qua sotto.  
 

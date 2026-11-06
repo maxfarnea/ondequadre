@@ -41,6 +41,6 @@ Come la Cracklebox precedentemente descritta, l'APC si basa su un circuito molto
 
 Si può introdurre una variante utilizzando fotoresistenze al posto di uno o entrambi i potenziometri che controllano la frequenza e la larghezza dell'impulso. Ho utilizzato APC così modificate in un paio di progetti sperimentali, che descriverò nei miei prossimi post, dei quali vi lascio però qui un'anteprima.  
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=7sQdhjkmRXU)
+[![](https://img.youtube.com/vi/7sQdhjkmRXU/hqdefault.jpg)](https://www.youtube.com/watch?v=7sQdhjkmRXU)
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=Ru5Rmfn3zzY)
+[![](https://img.youtube.com/vi/Ru5Rmfn3zzY/hqdefault.jpg)](https://www.youtube.com/watch?v=Ru5Rmfn3zzY)

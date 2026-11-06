@@ -34,7 +34,7 @@ Ora è possibile saldare dei fili a partire dai due terminali della resistenza e
   
 Quindi toccando i contatti si può variare l'intonazione delle note o la velocità di esecuzione dei campioni (se il giocattolo riproduce campioni memorizzati su ROM), oppure se si sta utilizzando una fotoresistenza si possono ottenere degli effetti interessanti muovendo vicino ad essa una luce fissa o lampeggiante 
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=nWPq14B00lg)
+[![](https://img.youtube.com/vi/nWPq14B00lg/hqdefault.jpg)](https://www.youtube.com/watch?v=nWPq14B00lg)
 
 Un altro modo di indagare e scoprire nuovi effetti 'nascosti' nel circuito del giocattolo è quello di usare dei cavetti con i **morsetti a coccodrillo**. Basta attaccare un morsetto a un contatto sul circuito (anche il positivo o il negativo delle pile) e con l'altro toccare tutti gli altri contatti e sentire cosa succede.  
 
@@ -45,4 +45,4 @@ Anche in questo caso sperimentando con cortocircuiti e collegamenti si riescono 
 
 ![](../imgs/bend9-sm.jpg)
 
-[![](../imgs/yt-placeholder.png)](https://www.youtube.com/watch?v=ffphAfEPfts)
+[![](https://img.youtube.com/vi/ffphAfEPfts/hqdefault.jpg)](https://www.youtube.com/watch?v=ffphAfEPfts)
