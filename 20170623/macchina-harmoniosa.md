@@ -18,7 +18,11 @@ translations: macchina-harmoniosa.en
 
 Macchina Harmoniosa è un piccolo sequencer/arpeggiatore MIDI generativo basato su Arduino, come tanti che si vedono in azione su YouTube, ma con qualche caratteristica in più. E come tutti i progetti che mi piacciono, comincia da un pezzo di surplus elettronico: la sua tastiera viene da un vecchio registratore di cassa di un ristorante pizzeria, recuperata e riciclata. 88 tasti, otto righe per undici colonne, gestiti tramite due moduli demultiplexer collegati ad Arduino. Sopra ci ho montato un display LCD 16x2 e, visto che il sequencer lavora su due tracce, due uscite MIDI.
 
-L'ispirazione per costruirla mi è venuta ascoltando ***Vertical*** di **Caterina Barbieri**: un album fatto di pattern minimisti che si ripetono e si trasformano con una pazienza ipnotica. Ascoltandolo, a un certo punto, non ho più voluto solo ascoltare quegli arabeschi di note: ho voluto uno strumento che me li facesse costruire.
+![](../imgs/DSCN0414.jpg)
+
+L'ispirazione per costruirla mi è venuta ascoltando ***Vertical*** di **Caterina Barbieri**: un album fatto di pattern minimisti che si ripetono e si trasformano con una pazienza ipnotica. Ascoltandolo, a un certo punto, ho voluto uno strumento che me li facesse costruire.
+
+![](../imgs/IMG_20170613_232020.jpg)
 
 ### Specifiche
 
@@ -45,6 +49,10 @@ I pattern si salvano e caricano dalla **EEPROM** di Arduino, in sedici bank.
 E poi c'è un tasto **PANIC**, che spegne tutte le note su tutti i canali: quando una modalità verticale lascia qualcosa in sospeso, o quando la creatività degenera.
 
 L'esecuzione può avvenire anche al contrario, con i tasti di forward e backward.
+
+![](../imgs/IMG_20170613_232020.jpg)
+
+![](../imgs/IMG-20181114-WA0000.jpg)
 
 ### Dettagli tecnici
 

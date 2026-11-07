@@ -75,7 +75,7 @@ Per finalizzare i suoni scoperti si devono saldare dei pezzi di filo nei punti c
 
 Poi per collegare il giocattolo al mixer o a un amplificatore si può per prima cosa microfonarlo come fosse uno strumento acustico, basta anche con un piccolo microfono tipo quelli per PC montato direttamente sopra l'altoparlante o dietro, dentro la scocca. In alternativa **si può saldare un connettore audio jack femmina al posto dell'altoparlante**, magari aggiungendo anche un potenziometro per regolare il livello del volume secondo il seguente schema:  
  
-![](../imgs/audio+pot.jpg)
+![](../imgs/audio+pot.png)
 
 Quando saremo soddisfatti del nostro lavoro è meglio rimontare tutta la scocca per evitare che durante l'utilizzo si stacchi qualche filo o si creino contatti indesiderati.  
 

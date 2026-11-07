@@ -28,7 +28,7 @@ Questo generatore è un semplice oscillatore a onda quadra del quale è possibil
    
 Il circuito è stato in seguito modificato da **Kaustic Machines** aggiungendo un'uscita audio a -4db, e dopo essere stato ribattezzato col nome con cui è ora conosciuto, è diventato uno dei circuiti audio sperimentali più diffusi.  
 
-![](../imgs/s_apc.jpg)
+![](../imgs/s_apc.png)
 
 Come la Cracklebox precedentemente descritta, l'APC si basa su un circuito molto semplice e realizzabile da chiunque abbia quel minimo di manualità richiesta per fare una manciata di saldature. L'Atari Punk Console però non utilizza componenti di difficile reperibità, essa utilizza un NE556 (o due NE555) che è un componente economico e reperibile ovunque e che fa di questo circuito praticamente una tappa forzata per chi ama costruirsi i propri suoni ed effetti lo-fi. Ecco qualche esempio di Atari Punk Console che ho costruito:   
 
