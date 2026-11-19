@@ -25,15 +25,13 @@ E' un'architettura longeva e matura nata nel 1998 e in continuo sviluppo e aggio
 
 A livello macroscopico il sistema MIDIbox consiste in un modulo hardware core al quale si possono collegare altri core oppure specifici moduli di input/output (digitale, analogico, CV, MIDI), di visualizzazione (LED o display) o di generazione sonora (MOS **SID** o Yamaha **OPL3**). L'hardware è pilotato da un vero e proprio sistema operativo realtime MIDI (detto **MIOS**) che offre le funzionalità di base di comunicazione (MIDI, USB, ecc), di gestione dell'interfaccia utente e display e di editing e salvataggio delle patch. Sopra al MIOS sono realizzati i firmware specifici per tipologia di strumento che si vuole realizzare.
 
->>> ### Il core
->>>
->>> Il cuore della stragrande maggioranza dei progetti MIDIbox è il modulo **MBHP Core**, il cui componente principale è il **PIC18F452** di Microchip: un microcontrollore da 40 MHz (cristallo esterno da 10 MHz) in grado di gestire i moduli analogici e digitali della piattaforma con latenze inferiori al millisecondo. Il PIC è un "system on chip": CPU, 32k di flash per il programma, 1536 byte di RAM, 256 byte di EEPROM, un convertitore AD e una UART per la MIDI, tutto dentro un singolo chip.
->>>
->>> La scelta di questo processore è anche una scelta di campo: il PIC esiste in package **DIP**, si salda a mano senza rischiare di polverizzare piedini SMD, costa poco, si trova ovunque ed è quasi indistruttibile. Prima l'elettronica diventa accessibile, poi il software: l'idea è che anche un principiante, con il saldatore in mano, possa arrivare in fondo.
->>>
->>> Il resto del modulo è essenziale: l'alimentazione accetta da 7 a 10 volt, in corrente alternata o continua e con polarità indifferente (a bordo c'è il raddrizzatore), l'interfaccia MIDI, e i connettori verso i moduli della piattaforma: AIN per gli ingressi analogici, DIN per i pulsanti, DOUT per i LED, IIC per i BankStick, le memorie che conservano le configurazioni. Ogni funzione è un modulo separato che si aggancia al core: si costruisce esattamente ciò che serve, e niente più.
->>>
->>> Un dettaglio che racconta lo spirito della piattaforma: il firmware si carica **via MIDI**, come dump SysEx. Niente programmatori o cavi speciali: la MIDI stessa è l'interfaccia di sviluppo.
+Il cuore della stragrande maggioranza dei progetti MIDIbox è il modulo **MBHP Core**, il cui componente principale è il **PIC18F452** di Microchip: un microcontrollore da 40 MHz in grado di gestire i moduli analogici e digitali della piattaforma con latenze inferiori al millisecondo. Il PIC è un "system on chip": CPU, 32k di flash per il programma, 1536 byte di RAM, 256 byte di EEPROM, un convertitore AD e una UART per il MIDI, tutto dentro un singolo chip.
+
+La scelta di questo processore è anche una scelta di campo: il PIC esiste in package **DIP**, si salda a mano senza rischiare di polverizzare piedini SMD, costa poco, si trova ovunque ed è quasi indistruttibile. Prima l'elettronica diventa accessibile, poi il software: l'idea è che anche un principiante, con il saldatore in mano, possa arrivare in fondo.
+
+Il resto del modulo è essenziale: l'alimentazione accetta da 7 a 10 volt, in corrente alternata o continua e con polarità indifferente (a bordo c'è il raddrizzatore), l'interfaccia MIDI, e i connettori verso i moduli della piattaforma: AIN per gli ingressi analogici, DIN per i pulsanti, DOUT per i LED, IIC per i BankStick, le memorie che conservano le configurazioni. Ogni funzione è un modulo separato che si aggancia al core: si costruisce esattamente ciò che serve, e niente più.
+
+Un dettaglio che racconta lo spirito della piattaforma: il firmware si carica **via MIDI**, come dump SysEx. Niente programmatori o cavi speciali: il MIDI stesso è l'interfaccia di sviluppo.
 
 ![](../imgs/DSCN1593.JPG)
 
