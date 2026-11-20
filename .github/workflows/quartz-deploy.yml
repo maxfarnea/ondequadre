@@ -1,0 +1,78 @@
+name: Build & deploy sito Quartz
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout vault (ondequadre)
+        uses: actions/checkout@v4
+        with:
+          path: vault
+
+      - name: Checkout Quartz
+        uses: actions/checkout@v4
+        with:
+          repository: jackyzha0/quartz
+          path: quartz
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: quartz/package-lock.json
+
+      - name: Install dipendenze Quartz
+        working-directory: quartz
+        run: npm ci
+
+      - name: Copia il vault in content/
+        run: |
+          rm -rf quartz/content
+          mkdir quartz/content
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.obsidian' \
+            --exclude='obsidian-config.md' \
+            --exclude='how-to.md' \
+            --exclude='brief.md' \
+            --exclude='to-do.md' \
+            vault/ quartz/content/
+
+      - name: Genera indici statici e link di lingua (al posto dei blocchi dataview)
+        run: python3 .github/scripts/generate_index.py quartz/content
+
+      - name: Rimuove i blocchi dataview residui (Quartz non li esegue)
+        run: |
+          find quartz/content -name '*.md' -print0 |
+            xargs -0 perl -0pi -e 's/```\s*dataview\r?\n.*?\r?\n```(\r?\n)?//gs'
+
+      - name: Patch configurazione Quartz
+        run: |
+          sed -i 's|pageTitle: .*|pageTitle: "Onde Quadre",|' quartz/quartz.config.ts
+          sed -i 's|locale: .*|locale: "it-IT",|' quartz/quartz.config.ts
+          sed -i 's|baseUrl: .*|baseUrl: "maxfarnea.github.io",|' quartz/quartz.config.ts
+          sed -i 's|markdownLinkResolution: "absolute"|markdownLinkResolution: "shortest"|' quartz/quartz.config.ts
+
+      - name: Build
+        working-directory: quartz
+        run: npx quartz build
+
+      - name: Deploy su maxfarnea/maxfarnea (GitHub Pages)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.QUARTZ_DEPLOY_TOKEN }}
+          publish_dir: ./quartz/public
+          external_repository: maxfarnea/maxfarnea
+          publish_branch: main
+          force_orphan: true
+          commit_message: 'Deploy sito Onde Quadre (Quartz)'
