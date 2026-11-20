@@ -1,7 +1,7 @@
 ---
 title: IRON SKY DIRECTOR'S DIARY
 tags: [music]
-category: technical-analysis
+category: analysis
 date: 2024-08-19
 status: final
 author: Max Farnea

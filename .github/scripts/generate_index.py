@@ -27,6 +27,18 @@ LINK_SENTENCE = {
 }
 LINK_TEXT = {"it": "English version", "en": "versione italiana"}
 
+# slug canonico (uguale in entrambe le lingue) -> etichetta mostrata nella
+# tabella dell'indice, per lingua
+CATEGORY_LABELS = {
+    "about": {"it": "Chi sono", "en": "About"},
+    "analysis": {"it": "Analisi tecnica", "en": "Technical analysis"},
+    "guide": {"it": "Guida", "en": "Guide"},
+    "installation": {"it": "Installazione", "en": "Installation"},
+    "performance": {"it": "Performance", "en": "Performance"},
+    "project": {"it": "Progetto", "en": "Project"},
+    "release": {"it": "Release", "en": "Release"},
+}
+
 
 def parse_frontmatter(text: str) -> dict:
     match = FM_RE.match(text)
@@ -72,7 +84,9 @@ def build_table(posts_all: dict, want_en: bool) -> str:
         date = fields.get("date", "")
         title = fields.get("title", path)
         desc = fields.get("description", "").replace("|", "\\|")
-        rows.append((date, f"| [{title}]({path}) | {date} | {fields.get('category', '')} | {desc} |"))
+        cat = fields.get("category", "")
+        label = CATEGORY_LABELS.get(cat, {}).get("en" if want_en else "it", cat)
+        rows.append((date, f"| [{title}]({path}) | {date} | {label} | {desc} |"))
     rows.sort(key=lambda r: r[0], reverse=True)
     header = "| Post | Date | Category | Description |\n| - | - | - | - |"
     return header + "\n" + "\n".join(r[1] for r in rows) + "\n"

@@ -1,7 +1,7 @@
 ---
 title: TAMAGOTCHI MANNARO
 tags: [suoni, circuit, drone, fai da te, sintetizzatore, do it yourself, sperimentale, circuitbending, glitch, autocostruzione, lofi, DIY, noise, elettronica]
-category: progetto
+category: project
 date: 2013-03-12
 status: final
 author: Max Farnea

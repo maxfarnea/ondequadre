@@ -1,7 +1,7 @@
 ---
 title: MIDIBOX SID, IL CHIP DEL COMMODORE 64 IN UN SYNTH MIDI
 tags: [sintetizzatore, do it yourself, DIY, MIDI, programmazione, elettronica, microcontrollori, fai da te, synth, c64, chiptune]
-category: progetto
+category: project
 date: 2025-09-10
 status: final
 author: Max Farnea

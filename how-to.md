@@ -8,7 +8,7 @@ Obsidian supporta metadati strutturati tramite frontmatter YAML all'inizio di og
 ---
 title: Analisi Performance API Gateway
 tags: [performance, api, aws]
-category: analisi-tecnica
+category: analysis
 date: 2026-06-19
 status: draft | review | final
 author: Massimiliano
@@ -47,7 +47,7 @@ Puoi crearli manualmente con link, oppure generarli dinamicamente con **Dataview
 ```dataview
 TABLE date, status, category
 FROM "analisi"
-WHERE category = "analisi-tecnica"
+WHERE category = "analysis"
 SORT date DESC
 ```
 
@@ -131,7 +131,7 @@ Obsidian ha un **core plugin "Templates"** (incluso, basta attivarlo nelle Setti
 title: "{{title}}"
 date: {{date}}
 tags: []
-category: analisi-tecnica
+category: analysis
 status: draft
 author: Massimiliano
 ---
@@ -250,7 +250,7 @@ tags: [moc, indice]
 ```dataview
 TABLE date, status
 FROM "analisi"
-WHERE category = "analisi-tecnica"
+WHERE category = "analysis"
 SORT date DESC
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: ANS SYNTHESIZER
 tags: [synthesizer, experimental, experimentation, electronics, avant-garde, drone]
-category: technical-analysis
+category: analysis
 date: 2015-05-18
 status: final
 author: Max Farnea

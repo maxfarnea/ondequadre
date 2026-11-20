@@ -1,7 +1,7 @@
 ---
 title: LA PIATTAFORMA MIDIBOX
 tags: [sintetizzatore, do it yourself, DIY, MIDI, programmazione, elettronica, microcontrollori, fai da te]
-category: progetto
+category: project
 date: 2016-06-16
 status: final
 author: Max Farnea

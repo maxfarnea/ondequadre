@@ -17,7 +17,7 @@ ondequadre/
 ```yaml
 title: TITOLO DEL POST
 tags: [tag1, tag2]
-category: guida | installazione | release | performance | progetto | analisi-tecnica
+category: about | analysis | guide | installation | performance | project | release
 date: YYYY-MM-DD
 status: final
 author: Max Farnea
@@ -163,7 +163,7 @@ Crea `.obsidian/templates/nuovo-post.md`:
 ---
 title: {{title}}
 tags: []
-category: analisi-tecnica
+category: analysis
 date: {{date:YYYY-MM-DD}}
 status: draft
 author: Max Farnea

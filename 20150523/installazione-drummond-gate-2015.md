@@ -1,7 +1,7 @@
 ---
 title: INSTALLAZIONE DRUMMOND GATE 2015
 tags: [installazione, suoni, sperimentazione, progetto, sintetizzatore, multimediale, performance, sperimentale, algoritmi, noise, processing, musica, programmazione, live]
-category: installazione
+category: installation
 date: 2015-05-23
 status: final
 author: Max Farnea

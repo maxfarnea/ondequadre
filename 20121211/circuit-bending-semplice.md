@@ -1,7 +1,7 @@
 ---
 title: GUIDA A UN SEMPLICE CIRCUIT BENDING
 tags: [suoni, circuit, sperimentazione, giocattoli, glitch, circuitbending, sperimentale, micromusic, lofi, DIY, noise, guida, elettronica]
-category: guida
+category: guide
 date: 2012-12-11
 status: final
 author: Max Farnea

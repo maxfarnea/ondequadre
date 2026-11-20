@@ -1,7 +1,7 @@
 ---
 title: LIVE CODING, OR WHEN THE PROGRAM BECOMES AN INSTRUMENT
 tags: [live coding, experimental, algorithms, programming, electronics, MIDI, synth, sonic pi, algorave]
-category: technical-analysis
+category: analysis
 date: 2026-11-19
 status: final
 author: Max Farnea

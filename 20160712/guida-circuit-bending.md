@@ -1,7 +1,7 @@
 ---
 title: GUIDA COMPLETA AL CIRCUIT BENDING (WORKSHOP)
 tags: [circuit, circuitbending, sperimentale, micromusic, glitch, DIY, workshop, sperimentazione, noise, guida, tutorial]
-category: guida
+category: guide
 date: 2016-07-12
 status: final
 author: Max Farnea

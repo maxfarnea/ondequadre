@@ -1,7 +1,7 @@
 ---
 title: MIDIBOX64, UNA CONTROL SURFACE CHE ASPETTA DI DIVENTARE ALTRO
 tags: [do it yourself, DIY, MIDI, programmazione, elettronica, microcontrollori, fai da te, controller, control surface]
-category: progetto
+category: project
 date: 2025-10-30
 status: final
 author: Max Farnea

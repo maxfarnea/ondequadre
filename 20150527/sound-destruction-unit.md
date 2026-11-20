@@ -1,7 +1,7 @@
 ---
 title: SOUND DESTRUCTION UNIT
 tags: [suoni, progetto, drone, fai da te, sintetizzatore, do it yourself, glitch, sperimentale, circuitbending, DIY, noise, elettronica]
-category: progetto
+category: project
 date: 2015-05-27
 status: final
 author: Max Farnea
