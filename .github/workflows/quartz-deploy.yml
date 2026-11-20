@@ -49,7 +49,7 @@ jobs:
             vault/ quartz/content/
 
       - name: Genera indici statici e link di lingua (al posto dei blocchi dataview)
-        run: python3 .github/scripts/generate_index.py quartz/content
+        run: python3 vault/.github/scripts/generate_index.py quartz/content
 
       - name: Rimuove i blocchi dataview residui (Quartz non li esegue)
         run: |
