@@ -73,6 +73,6 @@ jobs:
           personal_token: ${{ secrets.QUARTZ_DEPLOY_TOKEN }}
           publish_dir: ./quartz/public
           external_repository: maxfarnea/maxfarnea
-          publish_branch: main
+          publish_branch: master
           force_orphan: true
           commit_message: 'Deploy sito Onde Quadre (Quartz)'
