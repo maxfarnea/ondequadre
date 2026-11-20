@@ -1,5 +1,5 @@
 ---
-title: DROP PATHS: A MOMENT OF REFLECTION
+title: "DROP PATHS: A MOMENT OF REFLECTION"
 tags: [download, album, music, electronics]
 category: release
 date: 2014-07-31

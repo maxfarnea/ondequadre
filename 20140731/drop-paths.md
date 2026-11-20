@@ -1,5 +1,5 @@
 ---
-title: DROP PATHS: UNA PAUSA DI RIFLESSIONE
+title: "DROP PATHS: UNA PAUSA DI RIFLESSIONE"
 tags: [download, album, musica, elettronica]
 category: release
 date: 2014-07-31
