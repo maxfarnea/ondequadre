@@ -22,6 +22,7 @@ jobs:
         with:
           repository: jackyzha0/quartz
           path: quartz
+          ref: v4.5.2   # ultima v4: da main (Quartz 5.x) quartz.config.ts non esiste piu'
 
       - name: Setup Node
         uses: actions/setup-node@v4
