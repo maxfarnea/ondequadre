@@ -121,6 +121,84 @@ perl -0pi -e 's#\Q        <p>\E\n\Q          {i18n(cfg.locale).components.footer
 perl -0pi -e 's#\Q    links: {\E\n\Q      GitHub: "https://github.com/jackyzha0/quartz",\E\n\Q      "Discord Community": "https://discord.gg/cRFFHYye7t",\E\n\Q    },\E#    links: {},#' \
   quartz.layout.ts
 
+# 7. Tema "midnight" (pages-themes/midnight) ricreato su Quartz, per entrambe
+#    le modalità (così la toggle tema non ha più effetto visibile -> la togliamo)
+if python3 -c '' 2>/dev/null; then PYBIN=python3; else PYBIN=python; fi
+"$PYBIN" - <<'PYEOF'
+import re
+from pathlib import Path
+
+cfg = Path("quartz.config.ts")
+text = cfg.read_text(encoding="utf-8")
+
+palette = """      colors: {
+        lightMode: {
+          light: "#1c1c1c",
+          lightgray: "#3a3a3a",
+          gray: "#a8a8a8",
+          darkgray: "#f0e7d5",
+          dark: "#e8e8e8",
+          secondary: "#ffcc00",
+          tertiary: "#ffeb9b",
+          highlight: "rgba(255, 204, 0, 0.12)",
+          textHighlight: "#ffcc0055",
+        },
+        darkMode: {
+          light: "#1c1c1c",
+          lightgray: "#3a3a3a",
+          gray: "#a8a8a8",
+          darkgray: "#f0e7d5",
+          dark: "#e8e8e8",
+          secondary: "#ffcc00",
+          tertiary: "#ffeb9b",
+          highlight: "rgba(255, 204, 0, 0.12)",
+          textHighlight: "#ffcc0055",
+        },
+      },"""
+
+typography = """      typography: {
+        header: "Open Sans",
+        body: "Open Sans",
+        code: "JetBrains Mono",
+      },"""
+
+new = re.sub(r"colors: \{.*?\n      \},", palette, text, count=1, flags=re.S)
+assert new != text, "patch-quartz: blocco colors di quartz.config.ts non trovato"
+new = re.sub(r"typography: \{.*?\n      \},", typography, new, count=1, flags=re.S)
+assert "JetBrains Mono" in new, "patch-quartz: blocco typography non trovato"
+cfg.write_text(new, encoding="utf-8")
+print("patch-quartz: tema midnight applicato a quartz.config.ts")
+PYEOF
+perl -0pi -e 's#^ +\{ Component: Component\.Darkmode\(\) \},\n##mg' quartz.layout.ts
+
+# 8. Stili midnight sullo sfondo, la larghezza colonna, hr e blockquote
+if ! grep -q 'Tema midnight' quartz/styles/custom.scss; then
+cat >> quartz/styles/custom.scss <<'EOF'
+
+// Tema midnight: sfondo sfumato, colonna stretta, hr tratteggiato, blockquote oro
+body {
+  background: linear-gradient(#2a2a29, #1c1c1c) fixed;
+}
+
+.center > article {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+hr {
+  border: 0;
+  height: 3px;
+  background: transparent;
+  background-image: repeating-linear-gradient(90deg, #434343 0 6px, transparent 6px 12px);
+}
+
+blockquote {
+  border-left: 3px solid #ffcc00;
+  font-style: italic;
+}
+EOF
+fi
+
 # --- Controprove: fallisce loud se una patch non ha preso --------------------
 grep -q 'pageTitle: "Onde Quadre"' quartz.config.ts
 grep -q 'locale: "it-IT"' quartz.config.ts
@@ -134,4 +212,6 @@ grep -q 'introduzione' quartz.layout.ts
 grep -q 'export { default as CategoriesAndTags' quartz/components/index.ts || grep -q '^  CategoriesAndTags,$' quartz/components/index.ts
 grep -q 'Massimiliano Farnea' quartz/components/Footer.tsx
 ! grep -q 'Discord Community' quartz.layout.ts
+grep -q '#ffcc00' quartz.config.ts
+! grep -q 'Component.Darkmode' quartz.layout.ts
 echo "patch-quartz: ok ($(basename "$Q"))"
