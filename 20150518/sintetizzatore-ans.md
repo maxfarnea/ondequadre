@@ -5,7 +5,7 @@ category: analysis
 date: 2015-05-18
 status: final
 author: Max Farnea
-cover: ../imgs/ANS_Synthesiser%2C_Glinka_Museum.jpg
+cover: ../imgs/ANS_Synthesiser.jpg
 description: "Il sintetizzatore ANS è una macchina sperimentale sviluppata dall'ingegnere russo Evgeny Murzin tra il 1937 e il 1957; il suo nome è composto dalle iniziali del"
 translations: sintetizzatore-ans.en
 ---
@@ -21,7 +21,7 @@ Il sintetizzatore ANS è una macchina sperimentale sviluppata dall'ingegnere rus
 La macchina si basa su una tecnica cinematografica che rende possibile visualizzare (e quindi stampare su un supporto) uno spettro audio. Con questa tecnica sono state stampate 144 tracce su 5 dischi di vetro in modo che potessero generare un totale di 720 fasci di luce modulata a frequenze diverse, distanziate 16,67 cents tra di loro, e in grado di coprire un'estensione di 10 ottave.
   
 
-[![](../imgs/ANS_Synthesiser%2C_Glinka_Museum.jpg)](https://commons.wikimedia.org/wiki/File:ANS_Synthesiser,_Glinka_Museum.jpg)
+[![](../imgs/ANS_Synthesiser.jpg)](https://commons.wikimedia.org/wiki/File:ANS_Synthesiser,_Glinka_Museum.jpg)
 By Charles Hutchins (Flickr: ANS Synthesiser) [CC BY 2.0],via Wikimedia Commons  
   
 
