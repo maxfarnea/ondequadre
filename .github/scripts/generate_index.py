@@ -6,7 +6,8 @@ Obsidian); questo script, eseguito solo in CI prima del build Quartz:
   1. sostituisce i blocchi dataview di index.md / index.en.md con la stessa
      tabella generata staticamente dal frontmatter dei post;
   2. aggiunge, dopo il titolo di ogni post, un link alla versione nell'altra
-     lingua (a build time, senza toccare i file del vault).
+     lingua (a build time, senza toccare i file del vault);
+  3. aggiunge lo slug di categoria ai tag, per avere la pagina /tags/<category>.
 
 Uso: python3 generate_index.py <dir-content-di-quartz>
 """
@@ -108,6 +109,39 @@ def replace_dataview_blocks(content: Path, posts: dict) -> bool:
     return changed
 
 
+def add_category_to_tags(content: Path, posts: dict) -> bool:
+    """Aggiunge lo slug di categoria ai tag (a build time) cosi' che esista la
+    pagina /tags/<category> linkata dall'elenco categorie in colonna destra."""
+    changed = False
+    tags_re = re.compile(r"^(tags:\s*\[)([^\]]*)(\]\s*)$", re.M)
+    for path, fields in posts.items():
+        cat = (fields.get("category") or "").strip()
+        if not cat:
+            continue
+        post_file = content / path
+        text = post_file.read_text(encoding="utf-8")
+        fm_match = FM_RE.match(text)
+        if not fm_match:
+            continue
+        fm = fm_match.group(1)
+        if "tags:" in fm:
+            items = [t.strip().strip("'\"") for t in fm.split("tags:", 1)[1].split("]")[0].split(",")]
+        else:
+            items = []
+        if cat in items:
+            continue
+        m = tags_re.search(fm)
+        if m:
+            middle = f", {cat}" if m.group(2).strip() else f" {cat}"
+            new_fm = fm[:m.start()] + m.group(1) + m.group(2) + middle + m.group(3) + fm[m.end():]
+        else:
+            new_fm = fm + f"\ntags: [{cat}]"
+        post_file.write_text(text[:fm_match.start(1)] + new_fm + text[fm_match.end(1):], encoding="utf-8")
+        changed = True
+        print(f"  {path}: categoria '{cat}' aggiunta ai tag")
+    return changed
+
+
 def add_language_links(content: Path, posts: dict) -> bool:
     changed = False
     for path, fields in posts.items():
@@ -182,6 +216,7 @@ def main() -> int:
     print(f"Trovati {len(posts)} post ({len(posts) - n_en} it, {n_en} en)")
     replace_dataview_blocks(content, posts)
     strip_body_duplicates(content, posts)
+    add_category_to_tags(content, posts)
     add_language_links(content, posts)
     return 0
 

@@ -4,6 +4,7 @@
 #
 #   patch-quartz.sh <dir-di-quartz>
 set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 Q="${1:?usage: patch-quartz.sh <quartz-dir>}"
 cd "$Q"
 
@@ -16,6 +17,14 @@ sed -i 's|markdownLinkResolution: "absolute"|markdownLinkResolution: "shortest"|
 # --- Layout ------------------------------------------------------------------
 # 1. Niente colonna destra (graph, toc, backlinks) in tutti i layout
 perl -0pi -e 's#  right: \[\n.*?\n  \],#  right: [],#gs' quartz.layout.ts
+
+# 1b. Componente custom categorie+tag nella colonna destra (già svuotata sopra)
+cp -f "$SCRIPT_DIR/quartz-custom/CategoriesAndTags.tsx" quartz/components/CategoriesAndTags.tsx
+if ! grep -q 'CategoriesAndTags' quartz/components/index.ts; then
+  sed -i 's|import TagList from "./TagList"|import TagList from "./TagList"\nimport CategoriesAndTags from "./CategoriesAndTags"|' quartz/components/index.ts
+  sed -i 's|^  TagList,$|  TagList,\n  CategoriesAndTags,|' quartz/components/index.ts
+fi
+perl -0pi -e 's#  right: \[\],#  right: [Component.CategoriesAndTags()],#g' quartz.layout.ts
 
 # 2. Sidebar: post recenti della lingua della pagina al posto dell'albero file
 perl -0pi -e 's#\QComponent.Explorer(),\E#Component.ConditionalRender({ component: Component.RecentNotes({ limit: 6, showTags: false, filter: (f) => f.slug !== "index" \&\& !f.slug?.endsWith(".en") }), condition: (page) => !(page.fileData.slug ?? "").endsWith(".en") }), Component.ConditionalRender({ component: Component.RecentNotes({ limit: 6, showTags: false, filter: (f) => f.slug?.endsWith(".en") \&\& f.slug !== "index.en" }), condition: (page) => (page.fileData.slug ?? "").endsWith(".en") }),#g' \
@@ -32,4 +41,6 @@ grep -q 'locale: "it-IT"' quartz.config.ts
 ! grep -q 'Component.Explorer' quartz.layout.ts
 grep -q 'ConditionalRender({ component: Component.ArticleTitle' quartz.layout.ts
 [ "$(grep -c 'Component.ArticleTitle' quartz.layout.ts)" -eq 2 ]  # content layout (filtrato) + list layout
+[ "$(grep -c 'Component.CategoriesAndTags()' quartz.layout.ts)" -eq 2 ]  # right di entrambi i layout
+grep -q 'export { default as CategoriesAndTags' quartz/components/index.ts || grep -q '^  CategoriesAndTags,$' quartz/components/index.ts
 echo "patch-quartz: ok ($(basename "$Q"))"
