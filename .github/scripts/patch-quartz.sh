@@ -115,6 +115,12 @@ a.post-card {
 EOF
 fi
 
+# 6. Footer: anno dinamico + autore invece del credito "Creato con Quartz"
+perl -0pi -e 's#\Q        <p>\E\n\Q          {i18n(cfg.locale).components.footer.createdWith}{" "}\E\n\Q          <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year}\E\n\Q        </p>\E#        <p>\n          © {year} - Massimiliano Farnea (<a href="https://github.com/maxfarnea">maxfarnea</a>)\n        </p>#' \
+  quartz/components/Footer.tsx
+perl -0pi -e 's#\Q    links: {\E\n\Q      GitHub: "https://github.com/jackyzha0/quartz",\E\n\Q      "Discord Community": "https://discord.gg/cRFFHYye7t",\E\n\Q    },\E#    links: {},#' \
+  quartz.layout.ts
+
 # --- Controprove: fallisce loud se una patch non ha preso --------------------
 grep -q 'pageTitle: "Onde Quadre"' quartz.config.ts
 grep -q 'locale: "it-IT"' quartz.config.ts
@@ -126,4 +132,6 @@ grep -q 'introduzione' quartz.layout.ts
 [ "$(grep -c 'Component.ArticleTitle' quartz.layout.ts)" -eq 2 ]  # content layout (filtrato) + list layout
 [ "$(grep -c 'Component.CategoriesAndTags()' quartz.layout.ts)" -eq 2 ]  # right di entrambi i layout
 grep -q 'export { default as CategoriesAndTags' quartz/components/index.ts || grep -q '^  CategoriesAndTags,$' quartz/components/index.ts
+grep -q 'Massimiliano Farnea' quartz/components/Footer.tsx
+! grep -q 'Discord Community' quartz.layout.ts
 echo "patch-quartz: ok ($(basename "$Q"))"
