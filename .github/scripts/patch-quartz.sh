@@ -35,17 +35,25 @@ if ! grep -q 'introduzione' quartz.layout.ts; then
   sed -i 's|filter: (f) => f.slug?.endsWith(".en") \&\& f.slug !== "index.en"|filter: (f) => f.slug?.endsWith(".en") \&\& f.slug !== "index.en" \&\& f.slug !== "introduzione.en"|g' quartz.layout.ts
 fi
 
-# 3. Pagina indice: niente data/tag duplicati al centro, il titolo (h1 =ArticleTitle)
-#    invece resta: il corpo della home e' generato da generate_index.py senza titolo
+# 3. Pagina indice: niente titolo/data/tag al centro (la home e' solo
+#    introduzione + separatore + card, generata da generate_index.py)
+# (stato preesistente: ArticleTitle sempre attivo -> torna filtrato)
 perl -0pi -e 's#^    Component\.ConditionalRender\(\{ component: Component\.ArticleTitle\(\), condition: \(page\) => page\.fileData\.slug !== "index" && page\.fileData\.slug !== "index\.en" \}\),$#    Component.ArticleTitle(),#m' \
   quartz.layout.ts
-perl -0pi -e 's#^    Component\.ArticleTitle\(\),\n    Component\.ContentMeta\(\),\n    Component\.TagList\(\),$#    Component.ArticleTitle(),\n    Component.ConditionalRender({ component: Component.ContentMeta(), condition: (page) => page.fileData.slug !== "index" \&\& page.fileData.slug !== "index.en" }),\n    Component.ConditionalRender({ component: Component.TagList(), condition: (page) => page.fileData.slug !== "index" \&\& page.fileData.slug !== "index.en" }),#m' \
+perl -0pi -e 's#^    Component\.ArticleTitle\(\),\n    Component\.ContentMeta\(\),\n    Component\.TagList\(\),$#    Component.ConditionalRender({ component: Component.ArticleTitle(), condition: (page) => page.fileData.slug !== "index" \&\& page.fileData.slug !== "index.en" }),\n    Component.ConditionalRender({ component: Component.ContentMeta(), condition: (page) => page.fileData.slug !== "index" \&\& page.fileData.slug !== "index.en" }),\n    Component.ConditionalRender({ component: Component.TagList(), condition: (page) => page.fileData.slug !== "index" \&\& page.fileData.slug !== "index.en" }),#m' \
+  quartz.layout.ts
+# (stato preesistente: ArticleTitle gia' isolato con ContentMeta/TagList gia' filtrati)
+perl -0pi -e 's#^    Component\.ArticleTitle\(\),\n(?=    Component\.ConditionalRender\(\{ component: Component\.ContentMeta)#    Component.ConditionalRender({ component: Component.ArticleTitle(), condition: (page) => page.fileData.slug !== "index" \&\& page.fileData.slug !== "index.en" }),#m' \
   quartz.layout.ts
 
-# 4. Titolo del sito: niente in colonna sinistra sulla home (l'ArticleTitle lo
-#    gia' centrato; cosi' la sidebar sale verso l'alto)
-perl -0pi -e 's#^    Component\.PageTitle\(\),$#    Component.ConditionalRender({ component: Component.PageTitle(), condition: (page) => page.fileData.slug !== "index" \&\& page.fileData.slug !== "index.en" }),#mg' \
+# 4. Titolo del sito in testa alla colonna sinistra, su tutte le pagine,
+#    con la grafia "| ONDE QUADRE |" (patch di PageTitle.tsx)
+perl -0pi -e 's#^\Q    Component.ConditionalRender({ component: Component.PageTitle(), condition: (page) => page.fileData.slug !== "index" && page.fileData.slug !== "index.en" }),\E$#    Component.PageTitle(),#m' \
   quartz.layout.ts
+if ! grep -q '| ONDE QUADRE |' quartz/components/PageTitle.tsx; then
+  perl -0pi -e 's#\Q      <a href={baseDir}>{title}</a>\E#      <a href={baseDir}> | ONDE QUADRE |</a>#' \
+    quartz/components/PageTitle.tsx
+fi
 
 # 5. Stili per le card della home
 if ! grep -q 'post-cards' quartz/styles/custom.scss; then
@@ -199,26 +207,14 @@ blockquote {
 EOF
 fi
 
-# 9. Titolo della home: grande e centrato come il #title di midnight
-if ! grep -q 'Titolo della home' quartz/styles/custom.scss; then
-cat >> quartz/styles/custom.scss <<'EOF'
-
-// Titolo della home: grande e centrato come il #title di midnight
-article:has(.post-cards) > h1.article-title {
-  font-size: 2.5rem;
-  font-weight: 300;
-  text-align: center;
-}
-EOF
-fi
-
 # --- Controprove: fallisce loud se una patch non ha preso --------------------
 grep -q 'pageTitle: "Onde Quadre"' quartz.config.ts
 grep -q 'locale: "it-IT"' quartz.config.ts
 ! grep -q 'Component.Graph' quartz.layout.ts
 ! grep -q 'Component.Explorer' quartz.layout.ts
-! grep -q 'ConditionalRender({ component: Component.ArticleTitle' quartz.layout.ts
-! grep -E -q '^ *Component\.PageTitle\(\),' quartz.layout.ts
+grep -q 'ConditionalRender({ component: Component.ArticleTitle' quartz.layout.ts
+grep -E -q '^ *Component\.PageTitle\(\),' quartz.layout.ts && ! grep -q 'component: Component.PageTitle()' quartz.layout.ts
+grep -q '| ONDE QUADRE |' quartz/components/PageTitle.tsx
 grep -q 'introduzione' quartz.layout.ts
 [ "$(grep -c 'Component.ArticleTitle' quartz.layout.ts)" -eq 2 ]  # content layout (filtrato) + list layout
 [ "$(grep -c 'Component.CategoriesAndTags()' quartz.layout.ts)" -eq 2 ]  # right di entrambi i layout
