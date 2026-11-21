@@ -147,7 +147,8 @@ def inline_intro(text: str, intro_dir: str) -> str:
     niente frase "disponibile anche in", link/immagini riscritti in root."""
     intro = FM_RE.sub("", text, count=1).replace("\r\n", "\n")
     intro = re.sub(r"^\*(Disponibile anche in|Also available in)\b.*\*\r?\n$", "", intro, flags=re.M)
-    return re.sub(r"(!?)\]\(([^)\s]+)", lambda m: f"{m.group(1)}]({rewrite_rel(m.group(2), intro_dir)})", intro)
+    # riscrivo solo l'URL: la ")" del markdown originale resta dov'è
+    return re.sub(r"(!?)\]\(([^)\s]+)", lambda m: f"{m.group(1)}]({rewrite_rel(m.group(2), intro_dir)}", intro)
 
 
 def rewrite_home(content: Path, posts: dict) -> bool:
