@@ -138,6 +138,37 @@ def add_language_links(content: Path, posts: dict) -> bool:
     return changed
 
 
+def strip_body_duplicates(content: Path, posts: dict) -> None:
+    """Rimuove dal corpo le righe che il layout rende già: h1 = titolo
+    (ArticleTitle), '*Pubblicato:*' (ContentMeta), '**Tag:**' (TagList)."""
+    pub_re = re.compile(r"^\*(Pubblicato|Published):\s*[\d-]+\*$")
+    tag_re = re.compile(r"^\*\*Tags?\*\*:")
+    items = dict(posts)
+    for name in ("index.md", "index.en.md"):  # esclusi da collect_posts ma con h1/dati duplicati
+        index_file = content / name
+        if index_file.exists():
+            items[name] = parse_frontmatter(index_file.read_text(encoding="utf-8"))
+    for path, fields in items.items():
+        post_file = content / path
+        lines = post_file.read_text(encoding="utf-8").splitlines(keepends=True)
+        body_start = 0
+        for i in range(1, len(lines)):
+            if lines[i].startswith("---"):
+                body_start = i + 1
+                break
+        title = fields.get("title", "").strip()
+        kept, seen_h1 = [], False
+        for ln in lines[body_start:]:
+            s = ln.strip()
+            if not seen_h1 and title and s == "# " + title:
+                seen_h1 = True
+                continue
+            if pub_re.match(s) or tag_re.match(s):
+                continue
+            kept.append(ln)
+        post_file.write_text("".join(lines[:body_start]) + "".join(kept), encoding="utf-8")
+
+
 def main() -> int:
     if len(sys.argv) != 2:
         print("usage: generate_index.py <content-dir>")
@@ -150,6 +181,7 @@ def main() -> int:
     n_en = len([p for p in posts if p.rsplit("/", 1)[-1].rsplit(".", 1)[0].endswith(".en")])
     print(f"Trovati {len(posts)} post ({len(posts) - n_en} it, {n_en} en)")
     replace_dataview_blocks(content, posts)
+    strip_body_duplicates(content, posts)
     add_language_links(content, posts)
     return 0
 

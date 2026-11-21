@@ -57,19 +57,8 @@ jobs:
           find quartz/content -name '*.md' -print0 |
             xargs -0 perl -0pi -e 's/```\s*dataview\r?\n.*?\r?\n```(\r?\n)?//gs'
 
-      - name: Patch configurazione Quartz
-        run: |
-          sed -i 's|pageTitle: .*|pageTitle: "Onde Quadre",|' quartz/quartz.config.ts
-          sed -i 's|locale: .*|locale: "it-IT",|' quartz/quartz.config.ts
-          sed -i 's|baseUrl: .*|baseUrl: "maxfarnea.github.io",|' quartz/quartz.config.ts
-          sed -i 's|markdownLinkResolution: "absolute"|markdownLinkResolution: "shortest"|' quartz/quartz.config.ts
-
-      - name: Sidebar con i post recenti al posto dell'albero file
-        run: |
-          perl -0pi -e 's#\QComponent.Explorer(),\E#Component.ConditionalRender({ component: Component.RecentNotes({ limit: 6, showTags: false, filter: (f) => f.slug !== "index" \&\& !f.slug?.endsWith(".en") }), condition: (page) => !(page.fileData.slug ?? "").endsWith(".en") }), Component.ConditionalRender({ component: Component.RecentNotes({ limit: 6, showTags: false, filter: (f) => f.slug?.endsWith(".en") \&\& f.slug !== "index.en" }), condition: (page) => (page.fileData.slug ?? "").endsWith(".en") }),#g' \
-            quartz/quartz.layout.ts
-          grep -q 'Component.RecentNotes' quartz/quartz.layout.ts
-          ! grep -q 'Component.Explorer' quartz/quartz.layout.ts
+      - name: Patch layout e configurazione Quartz
+        run: bash vault/.github/scripts/patch-quartz.sh quartz
 
       - name: Build
         working-directory: quartz

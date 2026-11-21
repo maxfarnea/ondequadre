@@ -54,14 +54,8 @@ EOF
 python .github/scripts/generate_index.py "$QDIR/content"
 
 # --- Patch identiche alla CI -------------------------------------------------
+bash .github/scripts/patch-quartz.sh "$QDIR"
 cd "$QDIR"
-sed -i 's|pageTitle: .*|pageTitle: "Onde Quadre",|' quartz.config.ts
-sed -i 's|locale: .*|locale: "it-IT",|' quartz.config.ts
-sed -i 's|baseUrl: .*|baseUrl: "maxfarnea.github.io",|' quartz.config.ts
-sed -i 's|markdownLinkResolution: "absolute"|markdownLinkResolution: "shortest"|' quartz.config.ts
-
-perl -0pi -e 's#\QComponent.Explorer(),\E#Component.ConditionalRender({ component: Component.RecentNotes({ limit: 6, showTags: false, filter: (f) => f.slug !== "index" \&\& !f.slug?.endsWith(".en") }), condition: (page) => !(page.fileData.slug ?? "").endsWith(".en") }), Component.ConditionalRender({ component: Component.RecentNotes({ limit: 6, showTags: false, filter: (f) => f.slug?.endsWith(".en") \&\& f.slug !== "index.en" }), condition: (page) => (page.fileData.slug ?? "").endsWith(".en") }),#g' \
-  quartz.layout.ts
 
 # --- Build / serve ------------------------------------------------------------
 if [ "${1:-}" = "--serve" ]; then
