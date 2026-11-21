@@ -3,24 +3,27 @@
 
 Nei file del vault i blocchi ```dataview restano invariati (funzionano in
 Obsidian); questo script, eseguito solo in CI prima del build Quartz:
-  1. sostituisce i blocchi dataview di index.md / index.en.md con la stessa
-     tabella generata staticamente dal frontmatter dei post;
+  1. ripulisce i corpi dei post dalle righe rese già dal layout (titolo, data,
+     tag) e toglie i blocchi dataview residui (Quartz non li esegue);
   2. aggiunge, dopo il titolo di ogni post, un link alla versione nell'altra
      lingua (a build time, senza toccare i file del vault);
-  3. aggiunge lo slug di categoria ai tag, per avere la pagina /tags/<category>.
+  3. aggiunge lo slug di categoria ai tag, per avere la pagina /tags/<category>;
+  4. ricostruisce la home: contenuto di introduzione.md(Introduzione), un
+     separatore e un indice a card (thumbnail, titolo, data, categoria).
 
 Uso: python3 generate_index.py <dir-content-di-quartz>
 """
 
+import posixpath
 import re
 import sys
 from pathlib import Path
 
 FM_RE = re.compile(r"^---\s*\r?\n(.*?)\r?\n---\s*\r?\n?", re.S)
-DVIEW_RE = re.compile(r"```\s*dataview\r?\n.*?\r?\n```(?:\r?\n)?", re.S)
 KV_RE = re.compile(r"^(title|date|category|description|author|translations):\s*(.*?)\s*$", re.M)
 
-EXCLUDED_FILES = {"index.md", "index.en.md", "brief.md", "how-to.md", "obsidian-config.md", "to-do.md"}
+EXCLUDED_FILES = {"index.md", "index.en.md", "brief.md", "how-to.md", "obsidian-config.md", "to-do.md",
+                  "introduzione.md", "introduzione.en.md"}
 
 LINK_SENTENCE = {
     "it": "*Disponibile anche in {link}*",
@@ -49,16 +52,32 @@ def parse_frontmatter(text: str) -> dict:
 
 
 def collect_posts(content: Path) -> dict:
-    """Ritorna {percorso_relativo: campi_frontmatter}."""
+    """Ritorna {percorso_relativo: campi_frontmatter + 'thumb'}."""
     posts = {}
     for md in content.rglob("*.md"):
         if md.name in EXCLUDED_FILES:
             continue
-        fields = parse_frontmatter(md.read_text(encoding="utf-8"))
+        text = md.read_text(encoding="utf-8")
+        fields = parse_frontmatter(text)
         if fields.get("author", "").lower() != "max farnea":
             continue
+        fields["thumb"] = first_image(text, md.parent, content)
         posts[md.relative_to(content).as_posix()] = fields
     return posts
+
+
+def first_image(text: str, directory: Path, root: Path) -> str:
+    """URL della prima immagine del corpo, relativo alla content root."""
+    body = FM_RE.sub("", text, count=1)
+    m = re.search(r"!\[[^\]]*\]\(([^)\s]+)", body)
+    if not m:
+        m = re.search(r"<img[^>]*src=[\"']([^\"']+)", body)
+    if not m:
+        return ""
+    url = m.group(1).strip()
+    if "://" in url or url.startswith("/"):
+        return url
+    return posixpath.normpath(posixpath.join(directory.relative_to(root).as_posix(), url))
 
 
 def counterpart(rel_path: str, fields: dict) -> str:
@@ -76,36 +95,64 @@ def counterpart(rel_path: str, fields: dict) -> str:
     return directory + "/" + filename if directory else filename
 
 
-def build_table(posts_all: dict, want_en: bool) -> str:
-    rows = []
-    for path, fields in posts_all.items():
-        is_en = path.rsplit("/", 1)[-1].rsplit(".", 1)[0].endswith(".en")
-        if is_en != want_en:
-            continue
-        date = fields.get("date", "")
+def esc(s: str) -> str:
+    return (s.replace("&", "&amp;").replace("<", "&lt;")
+             .replace(">", "&gt;").replace('"', "&quot;"))
+
+
+def build_cards(posts: dict, want_en: bool) -> str:
+    """Indice della home: card con thumbnail, titolo, data e categorie."""
+    items = sorted(
+        (path, fields) for path, fields in posts.items()
+        if (path.rsplit("/", 1)[-1].rsplit(".", 1)[0].endswith(".en") == want_en)
+    )
+    items.sort(key=lambda p: p[1].get("date", ""), reverse=True)
+    cards = []
+    for path, fields in items:
         title = fields.get("title", path)
-        desc = fields.get("description", "").replace("|", "\\|")
+        date = fields.get("date", "")
         cat = fields.get("category", "")
         label = CATEGORY_LABELS.get(cat, {}).get("en" if want_en else "it", cat)
-        rows.append((date, f"| [{title}]({path}) | {date} | {label} | {desc} |"))
-    rows.sort(key=lambda r: r[0], reverse=True)
-    header = "| Post | Date | Category | Description |\n| - | - | - | - |"
-    return header + "\n" + "\n".join(r[1] for r in rows) + "\n"
+        thumb = fields.get("thumb", "")
+        link = path[:-3]  # via l'estensione .md
+        if thumb:
+            inner = f'<img class="post-card-thumb" src="{esc(thumb)}" alt="" />'
+        else:
+            inner = (f'<div class="post-card-thumb post-card-nothumb">'
+                     f'<span>{esc(title[:1])}</span></div>')
+        cards.append(
+            f'<a class="post-card" href="{esc(link)}">{inner}'
+            f'<div class="post-card-meta">'
+            f'<span class="post-card-title">{esc(title)}</span>'
+            f'<span class="post-card-info">{esc(date)} · {esc(label)}</span>'
+            f'</div></a>'
+        )
+    return '<div class="post-cards">\n' + "\n".join(cards) + "\n</div>\n"
 
 
-def replace_dataview_blocks(content: Path, posts: dict) -> bool:
+def rewrite_home(content: Path, posts: dict) -> bool:
+    """Ricostruisce la home: introduzione + separatore + card dei post."""
     changed = False
-    for index_name in ("index.md", "index.en.md"):
+    for index_name, intro_name, want_en in (
+        ("index.md", "introduzione.md", False),
+        ("index.en.md", "introduzione.en.md", True),
+    ):
         index_file = content / index_name
         if not index_file.exists():
             continue
+        intro = ""
+        intro_file = content / intro_name
+        if intro_file.exists():
+            intro = FM_RE.sub("", intro_file.read_text(encoding="utf-8"), count=1).strip()
         text = index_file.read_text(encoding="utf-8")
-        table = build_table(posts, want_en=(index_name == "index.en.md"))
-        new_text, n = DVIEW_RE.subn(table, text)
-        if n:
-            index_file.write_text(new_text, encoding="utf-8")
-            changed = True
-            print(f"  {index_name}: sostituito/i {n} blocco/i dataview con la tabella statica")
+        m = FM_RE.match(text)
+        fm = m.group(0) if m else ""
+        if not fm.endswith("\n"):
+            fm += "\n"
+        body = intro + ("\n\n" if intro else "") + "---\n\n" + build_cards(posts, want_en)
+        index_file.write_text(fm + "\n" + body, encoding="utf-8")
+        changed = True
+        print(f"  {index_name}: rigenerata (introduzione + {len(posts)} card candidate)")
     return changed
 
 
@@ -214,10 +261,10 @@ def main() -> int:
     posts = collect_posts(content)
     n_en = len([p for p in posts if p.rsplit("/", 1)[-1].rsplit(".", 1)[0].endswith(".en")])
     print(f"Trovati {len(posts)} post ({len(posts) - n_en} it, {n_en} en)")
-    replace_dataview_blocks(content, posts)
     strip_body_duplicates(content, posts)
     add_category_to_tags(content, posts)
     add_language_links(content, posts)
+    rewrite_home(content, posts)
     return 0
 
 
