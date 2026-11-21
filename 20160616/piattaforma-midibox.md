@@ -5,7 +5,7 @@ category: project
 date: 2016-06-16
 status: final
 author: Max Farnea
-cover: ../imgs/12491799_10152895884897824_6116401970505297007_o.jpg
+cover: ../imgs/DSCN1229.jpg
 description: "La piattaforma MIDIbox è un progetto hardware e software opensource di Thorsten Klose per la autocostruzione di sistemi MIDI (processori, controller, sequencer"
 translations: piattaforma-midibox.en
 ---

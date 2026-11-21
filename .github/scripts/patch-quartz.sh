@@ -199,6 +199,19 @@ blockquote {
 EOF
 fi
 
+# 9. Titolo della home: grande e centrato come il #title di midnight
+if ! grep -q 'Titolo della home' quartz/styles/custom.scss; then
+cat >> quartz/styles/custom.scss <<'EOF'
+
+// Titolo della home: grande e centrato come il #title di midnight
+article:has(.post-cards) > h1.article-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-align: center;
+}
+EOF
+fi
+
 # --- Controprove: fallisce loud se una patch non ha preso --------------------
 grep -q 'pageTitle: "Onde Quadre"' quartz.config.ts
 grep -q 'locale: "it-IT"' quartz.config.ts
