@@ -8,7 +8,7 @@ Obsidian); questo script, eseguito solo in CI prima del build Quartz:
   2. aggiunge, dopo il titolo di ogni post, un link alla versione nell'altra
      lingua (a build time, senza toccare i file del vault);
   3. aggiunge lo slug di categoria ai tag, per avere la pagina /tags/<category>;
-  4. ricostruisce la home: contenuto di introduzione.md(Introduzione), un
+  4. ricostruisce la home: contenuto di 20121208/introduzione(.en).md, un
      separatore e un indice a card (thumbnail, titolo, data, categoria).
 
 Uso: python3 generate_index.py <dir-content-di-quartz>
@@ -22,8 +22,13 @@ from pathlib import Path
 FM_RE = re.compile(r"^---\s*\r?\n(.*?)\r?\n---\s*\r?\n?", re.S)
 KV_RE = re.compile(r"^(title|date|category|description|author|translations):\s*(.*?)\s*$", re.M)
 
-EXCLUDED_FILES = {"index.md", "index.en.md", "brief.md", "how-to.md", "obsidian-config.md", "to-do.md",
-                  "introduzione.md", "introduzione.en.md"}
+EXCLUDED_FILES = {"index.md", "index.en.md", "brief.md", "how-to.md", "obsidian-config.md", "to-do.md"}
+
+# sorgenti dell'introduzione mostrata in home (pagina "about" vera e propria)
+HOME_INTRO = {
+    ("index.md", "20121208/introduzione.md", False),
+    ("index.en.md", "20121208/introduzione.en.md", True),
+}
 
 LINK_SENTENCE = {
     "it": "*Disponibile anche in {link}*",
@@ -130,20 +135,32 @@ def build_cards(posts: dict, want_en: bool) -> str:
     return '<div class="post-cards">\n' + "\n".join(cards) + "\n</div>\n"
 
 
+def rewrite_rel(url: str, intro_dir: str) -> str:
+    """URL relativo alla content root (per l'uso in home)."""
+    if "://" in url or url.startswith(("/", "#")):
+        return url
+    return posixpath.normpath(posixpath.join(intro_dir, url))
+
+
+def inline_intro(text: str, intro_dir: str) -> str:
+    """Corpo dell'introduzione pronto per la home: niente frontmatter,
+    niente frase "disponibile anche in", link/immagini riscritti in root."""
+    intro = FM_RE.sub("", text, count=1).replace("\r\n", "\n")
+    intro = re.sub(r"^\*(Disponibile anche in|Also available in)\b.*\*\r?\n$", "", intro, flags=re.M)
+    return re.sub(r"(!?)\]\(([^)\s]+)", lambda m: f"{m.group(1)}]({rewrite_rel(m.group(2), intro_dir)})", intro)
+
+
 def rewrite_home(content: Path, posts: dict) -> bool:
     """Ricostruisce la home: introduzione + separatore + card dei post."""
     changed = False
-    for index_name, intro_name, want_en in (
-        ("index.md", "introduzione.md", False),
-        ("index.en.md", "introduzione.en.md", True),
-    ):
+    for index_name, intro_name, want_en in sorted(HOME_INTRO):
         index_file = content / index_name
         if not index_file.exists():
             continue
         intro = ""
         intro_file = content / intro_name
         if intro_file.exists():
-            intro = FM_RE.sub("", intro_file.read_text(encoding="utf-8"), count=1).strip()
+            intro = inline_intro(intro_file.read_text(encoding="utf-8"), posixpath.dirname(intro_name))
         text = index_file.read_text(encoding="utf-8")
         m = FM_RE.match(text)
         fm = m.group(0) if m else ""
