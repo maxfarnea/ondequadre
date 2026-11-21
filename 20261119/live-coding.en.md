@@ -6,6 +6,7 @@ date: 2026-11-19
 status: final
 author: Max Farnea
 lang: en
+cover: ../imgs/Sonic-Pi_9.png
 description: "Live coding: performing music by writing code in real time, in front of the audience, screens wide open. The TOPLAP manifesto, algorave, Sonic Pi and generative pattern"
 translations: live-coding
 ---
@@ -16,6 +17,8 @@ translations: live-coding
 **Tags:** live coding, experimental, algorithms, programming, electronics, MIDI, synth, sonic pi, algorave
 
 ---
+
+![](../imgs/Sonic-Pi_9.png)
 
 There are musicians who play code. Literally: not a score, not a programmed sequencer, but instructions written in real time, screens wide open, in front of an audience. This movement is called **live coding**, and in its most popular musical branch, **algorave**, people dance in front of a projector full of lines of code.
 
