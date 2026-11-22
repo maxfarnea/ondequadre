@@ -204,6 +204,13 @@ blockquote {
   border-left: 3px solid #ffcc00;
   font-style: italic;
 }
+EOF
+fi
+
+# 8b. Regole mobile (guard separato dal tema: su copie gia' patchate il tema
+#     c'e' gia' e altrimenti blocco mobile non verrebbe mai aggiunto)
+if ! grep -q -e '---- Mobile ----' quartz/styles/custom.scss; then
+cat >> quartz/styles/custom.scss <<'EOF'
 
 // ---- Mobile ----
 @media all and (max-width: 800px) {
@@ -271,4 +278,6 @@ grep -q 'Massimiliano Farnea' quartz/components/Footer.tsx
 ! grep -q 'Discord Community' quartz.layout.ts
 grep -q '#ffcc00' quartz.config.ts
 ! grep -q 'Component.Darkmode' quartz.layout.ts
+grep -q -e '---- Mobile ----' quartz/styles/custom.scss
+grep -q 'max-width: 800px' quartz/styles/custom.scss
 echo "patch-quartz: ok ($(basename "$Q"))"
