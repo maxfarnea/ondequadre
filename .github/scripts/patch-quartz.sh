@@ -214,24 +214,23 @@ cat >> quartz/styles/custom.scss <<'EOF'
 
 // ---- Mobile ----
 @media all and (max-width: 800px) {
-  // 1. Sidebar sinistra: via del tutto (la navigazione è la home + /tags)
-  .sidebar.left {
-    display: none;
+  // 1. Sidebar via del tutto. Serve la stessa catena di selettori di base.scss
+  //    (.page > #quartz-body .sidebar, con l'id): un ".sidebar.left" semplice
+  //    perde su specificita' e il display:flex nativo resta attivo.
+  .page > #quartz-body .sidebar.left,
+  .page > #quartz-body .sidebar.right {
+    display: none !important;
   }
 
-  // 2. Tag cloud destra: via (esiste già la pagina /tags dedicata)
-  .sidebar.right {
-    display: none;
-  }
-
-  // 3. Layout a colonna singola, full width
-  .page {
+  // 2. Il contenitore grid di Quartz diventa un flusso verticale semplice
+  .page > #quartz-body {
     display: block;
-    padding: 1rem 0.8rem;
+    padding: 1rem 0.8rem 0;
   }
 
-  .center,
-  .center > article {
+  // 3. Colonna centrale full width
+  .page > #quartz-body .center,
+  .page > #quartz-body .center > article {
     max-width: 100%;
     padding: 0;
   }
@@ -279,5 +278,6 @@ grep -q 'Massimiliano Farnea' quartz/components/Footer.tsx
 grep -q '#ffcc00' quartz.config.ts
 ! grep -q 'Component.Darkmode' quartz.layout.ts
 grep -q -e '---- Mobile ----' quartz/styles/custom.scss
+grep -q -e '.page > #quartz-body .sidebar.left' quartz/styles/custom.scss
 grep -q 'max-width: 800px' quartz/styles/custom.scss
 echo "patch-quartz: ok ($(basename "$Q"))"
