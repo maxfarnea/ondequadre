@@ -51,8 +51,8 @@ perl -0pi -e 's#^    Component\.ArticleTitle\(\),\n(?=    Component\.Conditional
 perl -0pi -e 's#^\Q    Component.ConditionalRender({ component: Component.PageTitle(), condition: (page) => page.fileData.slug !== "index" && page.fileData.slug !== "index.en" }),\E$#    Component.PageTitle(),#m' \
   quartz.layout.ts
 if ! grep -q '| ONDE QUADRE |' quartz/components/PageTitle.tsx; then
-  perl -0pi -e 's#\Q      <a href={baseDir}>{title}</a>\E#      <a href={baseDir}> | ONDE QUADRE |</a>#' \
-    quartz/components/PageTitle.tsx
+  perl -0pi -e 's#\Q      <a href={baseDir}>{title}</a>\E#      <a href={baseDir}>| ONDE QUADRE |</a>#' \
+  quartz/components/PageTitle.tsx
 fi
 
 # 5. Stili per le card della home
@@ -203,6 +203,54 @@ hr {
 blockquote {
   border-left: 3px solid #ffcc00;
   font-style: italic;
+}
+
+// ---- Mobile ----
+@media all and (max-width: 800px) {
+  // 1. Sidebar sinistra: via del tutto (la navigazione è la home + /tags)
+  .sidebar.left {
+    display: none;
+  }
+
+  // 2. Tag cloud destra: via (esiste già la pagina /tags dedicata)
+  .sidebar.right {
+    display: none;
+  }
+
+  // 3. Layout a colonna singola, full width
+  .page {
+    display: block;
+    padding: 1rem 0.8rem;
+  }
+
+  .center,
+  .center > article {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  // 4. Uccide l'overflow orizzontale che rompeva le media query
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  article {
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+
+  // 5. Sfondo: il gradient "fixed" perde la copertura su mobile
+  body {
+    background: #1c1c1c; // tinta piatta, stesso grigio scuro
+  }
+
+  // 6. Card: restano una sotto l'altra (come le vedi ora, che ti piacciono)
+  //    ma con thumbnail un po' meno monolitiche
+  a.post-card .post-card-thumb {
+    aspect-ratio: 16 / 9;
+    max-height: 240px;
+  }
 }
 EOF
 fi
