@@ -223,10 +223,26 @@ cat >> quartz/styles/custom.scss <<'EOF'
     display: none !important;
   }
 
-  // 2. Il contenitore grid di Quartz diventa un flusso verticale semplice
+  // 2. Il contenitore grid di Quartz diventa una colonna flex con ordine
+  //    esplicito: contenuto, poi sidebar destra (nuvola tag), poi footer del
+  //    sito per ultimo. Con display:block l'ordine dipende dal DOM e il
+  //    footer rischia di finire in mezzo alla nuvola.
   .page > #quartz-body {
-    display: block;
+    display: flex;
+    flex-direction: column;
     padding: 1rem 0.8rem 0;
+  }
+
+  .page > #quartz-body .center {
+    order: 1;
+  }
+
+  .page > #quartz-body .sidebar.right {
+    order: 2;
+  }
+
+  .page > #quartz-body footer {
+    order: 3;
   }
 
   // 3. Colonna centrale full width
