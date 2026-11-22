@@ -36,7 +36,7 @@ Questa control surface, in realtà, non è nata come control surface. Nella conf
 
 Di recente l'ho ricostruita in un'altra forma: slider, potenziometri e pulsanti, una control surface classica per controllare la DAW o generare eventi MIDI per sketch Processing. Ma ho lasciato otto ingressi analogici liberi su connettore, esattamente come nel progetto originale. I sensori non sono arrivati nel 2006, non sono arrivati nel 2016: la porta è ancora aperta. Le macchine, a differenza dei progetti, non hanno scadenze.
 
-![](../imgs/IMG_20170211_191442_383.JPG)
+![](../imgs/IMG_20170211_191442_383.jpg)
 
 ![](../imgs/DSC_2419.JPG)
 

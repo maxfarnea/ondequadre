@@ -5,7 +5,7 @@ category: project
 date: 2016-06-16
 status: final
 author: Max Farnea
-cover: ../imgs/DSCN1229.jpg
+cover: ../imgs/DSCN1229.JPG
 description: "La piattaforma MIDIbox è un progetto hardware e software opensource di Thorsten Klose per la autocostruzione di sistemi MIDI (processori, controller, sequencer"
 translations: piattaforma-midibox.en
 ---
@@ -17,7 +17,7 @@ translations: piattaforma-midibox.en
 
 ---
 
-![](../imgs/DSCN1229.jpg)
+![](../imgs/DSCN1229.JPG)
 
 La piattaforma **MIDIbox** è un progetto hardware e software opensource di **Thorsten Klose** per la autocostruzione di sistemi **MIDI** (processori, controller, sequencer o moduli expander) non commerciali ma comunque con funzioni e prestazioni professionali.
 
@@ -35,7 +35,7 @@ Un dettaglio che racconta lo spirito della piattaforma: il firmware si carica **
 
 ![](../imgs/DSCN1593.JPG)
 
-![](../imgs/IMG_20161203_094748.JPG)
+![](../imgs/IMG_20161203_094748.jpg)
   
 
 Sicuramente parlando di modulo core al quale si possono collegare moduli specifici viene in mente **Arduino** e i relativi shield e ci si potrebbe chiedere perché ci siano utenti che utilizzano questa piattaforma anziché la basetta Made in Italy, e anche cosa offra questa architettura di diverso.  Beh, MIDIbox ha quasi 20 anni e quindi è nata e si è diffusa quando Arduino non esisteva ancora; ma non è solo una questione cronologica, infatti tutto il progetto è specifico per la realizzazione di sistemi MIDI e quindi sia hardware che software sono ottimizzati per l'uso in ambito musicale. Le prestazioni sono di tutto rispetto (si scende anche sotto il millisecondo di latenza) e le potenzialità dell'hardware permettono di realizzare funzioni e un'interfaccia utente paragonabile a quella dei prodotti commerciali.   

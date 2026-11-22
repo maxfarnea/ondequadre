@@ -25,7 +25,7 @@ After years spent programming Motorola 68HC11 or Microchip PIC microcontrollers 
 
 This incredible Italian product has now become a well-established global paradigm for hobbyist and digital circuit prototyping. The number of projects that use it, the resources available online, the clones, and the various expansions (shields) available are proof of this.
 
-![](../imgs/DSCN6379.jpg)
+![](../imgs/DSCN6379.JPG)
 
 After a few tests to get familiar with the environment, I decided to create a project of my own. Starting from the idea of creating a musical toy for my daughter, I built a solid foundation for experimenting with algorithms for autogenerative music, and thus, this autogenerative carillon was born.
 

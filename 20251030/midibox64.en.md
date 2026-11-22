@@ -37,7 +37,7 @@ This control surface, actually, was not born as a control surface. In the origin
 
 Recently I rebuilt it in another form: sliders, potentiometers and buttons, a classic control surface for driving the DAW or generating MIDI events for Processing sketches. But I left eight analog inputs free on a connector, exactly as in the original project. The sensors did not arrive in 2006, they did not arrive in 2016: the port is still open. Machines, unlike projects, have no deadlines.
 
-![](../imgs/IMG_20170211_191442_383.JPG)
+![](../imgs/IMG_20170211_191442_383.jpg)
 
 ![](../imgs/DSC_2419.JPG)
 

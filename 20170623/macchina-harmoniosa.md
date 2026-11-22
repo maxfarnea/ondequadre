@@ -5,7 +5,7 @@ category: release
 date: 2017-06-23
 status: final
 author: Max Farnea
-cover: ../imgs/DSCN0414.jpg
+cover: ../imgs/DSCN0414.JPG
 description: "Macchina Harmoniosa è un sequencer/arpeggiatore MIDI generativo basato su Arduino, con pattern a due tracce, morphing realtime verso ventuno scale e autogenera"
 translations: macchina-harmoniosa.en
 ---
@@ -19,7 +19,7 @@ translations: macchina-harmoniosa.en
 
 Macchina Harmoniosa è un piccolo sequencer/arpeggiatore MIDI generativo basato su Arduino, come tanti che si vedono in azione su YouTube, ma con qualche caratteristica in più. E come tutti i progetti che mi piacciono, comincia da un pezzo di surplus elettronico: la sua tastiera viene da un vecchio registratore di cassa di un ristorante pizzeria, recuperata e riciclata. 88 tasti, otto righe per undici colonne, gestiti tramite due moduli demultiplexer collegati ad Arduino. Sopra ci ho montato un display LCD 16x2 e, visto che il sequencer lavora su due tracce, due uscite MIDI.
 
-![](../imgs/DSCN0414.jpg)
+![](../imgs/DSCN0414.JPG)
 
 L'ispirazione per costruirla mi è venuta ascoltando ***Vertical*** di **Caterina Barbieri**: un album fatto di pattern minimisti che si ripetono e si trasformano con una pazienza ipnotica. Ascoltandolo, a un certo punto, ho voluto uno strumento che me li facesse costruire.
 

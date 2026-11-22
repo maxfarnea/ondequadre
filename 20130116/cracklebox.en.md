@@ -43,6 +43,6 @@ You can also design ad hoc circuits for very sensitive simple amplifiers and vol
 
 I managed to find a couple of 709s, with which I built two Cracklebox circuits. I installed one in my experimental modular system, The Sound Destruction Unit, while the second I paired with an **Atari Punk Console** to create my **Tamagotchi Mannaro**. These experimental instruments of mine and the Atari Punk Console will be described in detail in upcoming posts. For now, I'll leave you with a preview.
 
-![](../imgs/DSCN0275.jpg)
+![](../imgs/DSCN0275.JPG)
 
 [![](https://img.youtube.com/vi/1hhTcrgn7l0/hqdefault.jpg)](https://www.youtube.com/watch?v=1hhTcrgn7l0)

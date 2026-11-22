@@ -41,7 +41,7 @@ Si possono anche progettare ad hoc circuiti di semplici amplificatori molto sens
 
 Io sono riuscito a reperire un paio di 709, con i quali ho realizzato due circuiti Cracklebox. Uno l'ho inserito nel mio sistema modulare sperimentale, The Sound Destruction Unit, mentre il secondo l'ho abbinato ad una **Atari Punk Console** creando il mio **Tamagotchi Mannaro**. Questi miei strumenti sperimentali e l'Atari Punk Console saranno descritti dettagliamente nei prossimi post, intanto vi lascio qualche anteprima.  
 
-![](../imgs/DSCN0275.jpg)
+![](../imgs/DSCN0275.JPG)
 
 [![](https://img.youtube.com/vi/1hhTcrgn7l0/hqdefault.jpg)](https://www.youtube.com/watch?v=1hhTcrgn7l0)
 

@@ -23,7 +23,7 @@ Dopo anni passati a programmare microcontrollori Motorola 68HC11 o Microchip PIC
 
 Questo incredibile prodotto italiano è ormai un paradigma consolidato a livello mondiale per quanto riguarda l'hobbistica e la prototipizzazione di circuiti digitali. Il numero di progetti che lo utilizza, le risorse disponibili in rete, i cloni e le varie espansioni disponibili (shield) ne sono la prova.
 
-![](../imgs/DSCN6379.jpg)
+![](../imgs/DSCN6379.JPG)
 
 Dopo qualche prova per prendere confidenza con l'ambiente ho deciso di realizzare un progetto tutto mio, e partendo dall'idea di realizzare un giocattolo musicale per mia figlia, ho realizzato una buona base per sperimentare con algoritmi per musica autogenerativa ed è nato questo carillon autogenerativo.  
 
