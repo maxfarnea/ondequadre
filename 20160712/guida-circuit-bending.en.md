@@ -65,7 +65,7 @@ A fundamental element is the period in which the toy or instrument we have in ou
 
 I am very passionate about retrocomputing and electronics, so I try to avoid modifying toys that are becoming rare or, at least, avoid invasive and irreversible interventions. But this is a personal choice that I do not intend to impose on anyone.
 
-![](../imgs/bend2-sm.JPG)
+![](../imgs/bend2-sm.jpg)
 
 Another factor is the price range: cheap toys, especially modern ones, are made with simple circuits, consisting of a single all-in-one chip (COB), usually fused and sealed on the same printed circuit board, and difficult to access except for a few external passive components. Usually, the maximum we can achieve is a pitch variation or distortion of the audio output. However, they can be very good for initial tests, as if we irreparably damage the circuit, we will not have lost much.
 
