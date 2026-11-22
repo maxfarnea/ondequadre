@@ -214,11 +214,12 @@ cat >> quartz/styles/custom.scss <<'EOF'
 
 // ---- Mobile ----
 @media all and (max-width: 800px) {
-  // 1. Sidebar via del tutto. Serve la stessa catena di selettori di base.scss
+  // 1. Sidebar sinistra: via del tutto. Serve la stessa catena di selettori di base.scss
   //    (.page > #quartz-body .sidebar, con l'id): un ".sidebar.left" semplice
   //    perde su specificita' e il display:flex nativo resta attivo.
-  .page > #quartz-body .sidebar.left,
-  .page > #quartz-body .sidebar.right {
+  //    La destra (categorie+tag) resta visibile: la grid mobile di Quartz
+  //    la mette da sola in fondo alla pagina.
+  .page > #quartz-body .sidebar.left {
     display: none !important;
   }
 
