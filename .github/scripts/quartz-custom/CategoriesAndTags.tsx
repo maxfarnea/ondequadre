@@ -2,7 +2,9 @@ import { FullSlug, resolveRelative } from "../util/path"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
 
-// Etichette localizzate degli slug di categoria (stessa mappa di generate_index.py)
+// Etichette degli slug di categoria: a build time patch-quartz.sh sostituisce
+// questa mappa con il contenuto di .github/scripts/categories.txt (unica
+// fonte, condivisa con generate_index.py per le card della home).
 const CATEGORY_LABELS: Record<string, string> = {
   about: "Chi sono",
   analysis: "Analisi tecnica",

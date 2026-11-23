@@ -1,0 +1,13 @@
+# Unica fonte per le categorie: slug usato nel frontmatter -> etichetta
+# mostrata nel sito. Letto da generate_index.py (card della home) e
+# sostituito in CategoriesAndTags.tsx da patch-quartz.sh (colonna destra).
+#
+# Formato: <slug>: <etichetta>   (righe vuote e # sono commenti)
+
+about: Chi sono
+analysis: Analisi tecnica
+guide: Guida
+installation: Installazione
+performance: Performance
+project: Progetto
+release: Release

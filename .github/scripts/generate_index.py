@@ -27,15 +27,22 @@ HOME_INDEX = "index.md"
 HOME_INTRO = "20121208/introduzione.md"
 
 # slug canonico di categoria -> etichetta mostrata nell'indice
-CATEGORY_LABELS = {
-    "about": "Chi sono",
-    "analysis": "Analisi tecnica",
-    "guide": "Guida",
-    "installation": "Installazione",
-    "performance": "Live performance",
-    "project": "Progetto",
-    "release": "Release",
-}
+# (unica fonte: .github/scripts/categories.txt, insieme a CategoriesAndTags.tsx)
+SCRIPT_DIR = Path(__file__).resolve().parent
+
+
+def load_category_labels() -> dict:
+    labels = {}
+    for line in (SCRIPT_DIR / "categories.txt").read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or ":" not in line:
+            continue
+        slug, label = line.split(":", 1)
+        labels[slug.strip()] = label.strip()
+    return labels
+
+
+CATEGORY_LABELS = load_category_labels()
 
 
 def parse_frontmatter(text: str) -> dict:

@@ -8,6 +8,8 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 Q="${1:?usage: patch-quartz.sh <quartz-dir>}"
 cd "$Q"
 
+if python3 -c '' 2>/dev/null; then PYBIN=python3; else PYBIN=python; fi
+
 # --- Configurazione ----------------------------------------------------------
 sed -i 's|pageTitle: .*|pageTitle: "Onde Quadre",|' quartz.config.ts
 sed -i 's|locale: .*|locale: "it-IT",|' quartz.config.ts
@@ -20,6 +22,30 @@ perl -0pi -e 's#  right: \[\n.*?\n  \],#  right: [],#gs' quartz.layout.ts
 
 # 1b. Componente custom categorie+tag nella colonna destra (già svuotata sopra)
 cp -f "$SCRIPT_DIR/quartz-custom/CategoriesAndTags.tsx" quartz/components/CategoriesAndTags.tsx
+# La mappa slug -> etichetta e' cavata dal file dati categories.txt
+# (unica fonte, condivisa con generate_index.py)
+"$PYBIN" - "$SCRIPT_DIR/categories.txt" quartz/components/CategoriesAndTags.tsx <<'PYEOF'
+import re
+import sys
+from pathlib import Path
+
+entries = []
+for line in Path(sys.argv[1]).read_text(encoding="utf-8").splitlines():
+    line = line.strip()
+    if not line or line.startswith("#") or ":" not in line:
+        continue
+    slug, label = line.split(":", 1)
+    entries.append(f'  {slug.strip()}: "{label.strip()}",')
+
+block = "const CATEGORY_LABELS: Record<string, string> = {\n" + "\n".join(entries) + "\n}"
+src = Path(sys.argv[2])
+txt = src.read_text(encoding="utf-8")
+_PAT = r"const CATEGORY_LABELS: Record<string, string> = \{.*?\n\}"
+m = re.search(_PAT, txt, flags=re.S)
+assert m, "patch-quartz: mappa CATEGORY_LABELS in CategoriesAndTags.tsx non trovata"
+src.write_text(txt[:m.start()] + block + txt[m.end():], encoding="utf-8")
+print("patch-quartz: categorie caricate da categories.txt")
+PYEOF
 if ! grep -q 'CategoriesAndTags' quartz/components/index.ts; then
   sed -i 's|import TagList from "./TagList"|import TagList from "./TagList"\nimport CategoriesAndTags from "./CategoriesAndTags"|' quartz/components/index.ts
   sed -i 's|^  TagList,$|  TagList,\n  CategoriesAndTags,|' quartz/components/index.ts
@@ -118,7 +144,6 @@ perl -0pi -e 's#\Q    links: {\E\n\Q      GitHub: "https://github.com/jackyzha0/
 
 # 7. Tema "midnight" (pages-themes/midnight) ricreato su Quartz, per entrambe
 #    le modalità (così la toggle tema non ha più effetto visibile -> la togliamo)
-if python3 -c '' 2>/dev/null; then PYBIN=python3; else PYBIN=python; fi
 "$PYBIN" - <<'PYEOF'
 import re
 from pathlib import Path
@@ -285,6 +310,7 @@ grep -q 'introduzione' quartz.layout.ts
 [ "$(grep -c 'Component.ArticleTitle' quartz.layout.ts)" -eq 2 ]  # content layout (filtrato) + list layout
 [ "$(grep -c 'Component.CategoriesAndTags()' quartz.layout.ts)" -eq 2 ]  # right di entrambi i layout
 grep -q 'export { default as CategoriesAndTags' quartz/components/index.ts || grep -q '^  CategoriesAndTags,$' quartz/components/index.ts
+grep -q 'Chi sono' quartz/components/CategoriesAndTags.tsx
 grep -q 'Massimiliano Farnea' quartz/components/Footer.tsx
 ! grep -q 'Discord Community' quartz.layout.ts
 grep -q '#ffcc00' quartz.config.ts
