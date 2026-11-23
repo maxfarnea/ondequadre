@@ -294,6 +294,19 @@ cat >> quartz/styles/custom.scss <<'EOF'
     aspect-ratio: 16 / 9;
     max-height: 240px;
   }
+
+  // 8. Separatore sopra la nuvola categorie/tag: la somma dei margini nativi
+  //    (hr 2rem + .categories-and-tags 2rem in cima) distaccava troppo
+  //    il blocco Categorie dal separatore, mentre il blocco Tag gli sta
+  //    attaccato (hr interno: 1rem). Ristretti per uniformare:
+  //    "> hr" tocca solo il separatore di colonna, non quelli nei post.
+  .page > #quartz-body .center > hr {
+    margin: 1rem auto;
+  }
+
+  .page > #quartz-body .sidebar.right > .categories-and-tags {
+    margin-top: 0.5rem;
+  }
 }
 EOF
 fi
