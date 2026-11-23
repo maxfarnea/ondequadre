@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/DSCN0370.JPG
 description: "Durante il Path Festival 2015 a Verona, ho tenuto un workshop sul circuit bending presso Interzona."
-translations: guida-circuit-bending.en
 ---
 # GUIDA COMPLETA AL CIRCUIT BENDING (WORKSHOP)
 

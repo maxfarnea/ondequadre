@@ -24,7 +24,6 @@ author: Max Farnea
 lang: en                # solo nei file .en.md
 cover: ../imgs/img.jpg  # prima immagine del post
 description: "..."      # max ~160 caratteri
-translations: slug.en   # slug della versione nell'altra lingua
 ```
 
 ---
@@ -169,7 +168,6 @@ status: draft
 author: Max Farnea
 cover: 
 description: ""
-translations: 
 ---
 
 # {{title}}

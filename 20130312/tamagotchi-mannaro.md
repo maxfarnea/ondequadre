@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/DSCN3689.JPG
 description: "Con questo post voglio presentare uno dei miei droni meglio riusciti e più sfruttati in un contesto live: il Tamagotchi Mannaro."
-translations: tamagotchi-mannaro.en
 ---
 # TAMAGOTCHI MANNARO
 

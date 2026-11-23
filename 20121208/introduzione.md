@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/maxfarnea.jpg
 description: "Sono Max Farnea, e sono da sempre appassionato di musica, informatica ed elettronica... e tutte le loro reciproche contaminazioni."
-translations: introduzione.en
 ---
 
 Ciao a tutti!

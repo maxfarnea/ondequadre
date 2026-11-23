@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/yt-placeholder.png
 description: "Con il termine Cracklebox (o Kraakdoos) si intende un tipo particolare di dispositivo audio sperimentale introdotto da Michel Waisvisz a metà degli anni 70. Mic"
-translations: cracklebox.en
 ---
 # CRACKLEBOX
 

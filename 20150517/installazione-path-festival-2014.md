@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/1836807_10152014996402824_2854117898163133967_o.png
 description: "Per l'edizione 2014 del Path Festival ho preparato un'installazione interattiva costituita da un manichino che indossa la mia maschera optoelettronica basata su"
-translations: installazione-path-festival-2014.en
 ---
 # INSTALLAZIONE PATH FESTIVAL 2014
 

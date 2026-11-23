@@ -3,29 +3,24 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import { classNames } from "../util/lang"
 
 // Etichette localizzate degli slug di categoria (stessa mappa di generate_index.py)
-const CATEGORY_LABELS: Record<string, Record<string, string>> = {
-  about: { it: "Chi sono", en: "About" },
-  analysis: { it: "Analisi tecnica", en: "Technical analysis" },
-  guide: { it: "Guida", en: "Guide" },
-  installation: { it: "Installazione", en: "Installation" },
-  performance: { it: "Performance", en: "Live performance" },
-  project: { it: "Progetto", en: "Project" },
-  release: { it: "Release", en: "Release" },
+const CATEGORY_LABELS: Record<string, string> = {
+  about: "Chi sono",
+  analysis: "Analisi tecnica",
+  guide: "Guida",
+  installation: "Installazione",
+  performance: "Performance",
+  project: "Progetto",
+  release: "Release",
 }
-
-const pageLang = (slug: string | undefined) => ((slug ?? "").endsWith(".en") ? "en" : "it")
 
 const CategoriesAndTags: QuartzComponent = ({
   allFiles,
   fileData,
   displayClass,
 }: QuartzComponentProps) => {
-  const lang = pageLang(fileData.slug)
-
   const catCounts = new Map<string, number>()
   const tagCounts = new Map<string, number>()
   for (const f of allFiles) {
-    if (pageLang(f.slug) !== lang) continue
     const fm = f.frontmatter
     if (!fm) continue
     const cat = fm.category as string | undefined
@@ -37,7 +32,7 @@ const CategoriesAndTags: QuartzComponent = ({
     }
   }
 
-  const label = (c: string) => CATEGORY_LABELS[c]?.[lang] ?? c
+  const label = (c: string) => CATEGORY_LABELS[c] ?? c
   const link = (slug: string) => resolveRelative(fileData.slug!, `tags/${slug}` as FullSlug)
   const cats = [...catCounts].sort((a, b) => a[0].localeCompare(b[0]))
   const tags = [...tagCounts].sort((a, b) => a[0].localeCompare(b[0]))
@@ -46,7 +41,7 @@ const CategoriesAndTags: QuartzComponent = ({
 
   return (
     <div class={classNames(displayClass, "categories-and-tags")}>
-      <h3>{lang === "en" ? "Categories" : "Categorie"}</h3>
+      <h3>Categorie</h3>
       <ul class="cats">
         {cats.map(([c, n]) => (
           <li>

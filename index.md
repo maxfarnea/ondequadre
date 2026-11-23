@@ -1,7 +1,6 @@
 ---
 title: Onde Quadre
 description: "Blog di Max Farnea su musica sperimentale, elettronica, circuit bending e autocostruzione."
-translations: index.en
 ---
 
 # Onde Quadre

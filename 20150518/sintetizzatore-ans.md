@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/ANS_Synthesiser.jpg
 description: "Il sintetizzatore ANS è una macchina sperimentale sviluppata dall'ingegnere russo Evgeny Murzin tra il 1937 e il 1957; il suo nome è composto dalle iniziali del"
-translations: sintetizzatore-ans.en
 ---
 # SINTETIZZATORE ANS
 

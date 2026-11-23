@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/11038475_10152428226607824_3756785312400077684_n.jpg
 description: "The Sound Destruction Unit è un sistema composto da svariati circuiti audio autocostruiti (generatore di pattern, oscillatori, cracklebox, filtri, body contacts"
-translations: sound-destruction-unit.en
 ---
 # SOUND DESTRUCTION UNIT
 

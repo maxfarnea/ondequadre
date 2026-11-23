@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
-"""Prepara gli indici bilingui per Quartz.
+"""Prepara gli indici per Quartz (solo italiano).
 
 Nei file del vault i blocchi ```dataview restano invariati (funzionano in
 Obsidian); questo script, eseguito solo in CI prima del build Quartz:
   1. ripulisce i corpi dei post dalle righe rese già dal layout (titolo, data,
      tag) e toglie i blocchi dataview residui (Quartz non li esegue);
-  2. aggiunge, dopo il titolo di ogni post, un link alla versione nell'altra
-     lingua (a build time, senza toccare i file del vault);
-  3. aggiunge lo slug di categoria ai tag, per avere la pagina /tags/<category>;
-  4. ricostruisce la home: contenuto di 20121208/introduzione(.en).md, un
+  2. aggiunge lo slug di categoria ai tag, per avere la pagina /tags/<category>;
+  3. ricostruisce la home: contenuto di 20121208/introduzione.md, un
      separatore e un indice a card (thumbnail, titolo, data, categoria).
 
 Uso: python3 generate_index.py <dir-content-di-quartz>
@@ -20,32 +18,23 @@ import sys
 from pathlib import Path
 
 FM_RE = re.compile(r"^---\s*\r?\n(.*?)\r?\n---\s*\r?\n?", re.S)
-KV_RE = re.compile(r"^(title|date|category|description|author|translations):\s*(.*?)\s*$", re.M)
+KV_RE = re.compile(r"^(title|date|category|description|author):\s*(.*?)\s*$", re.M)
 
-EXCLUDED_FILES = {"index.md", "index.en.md", "brief.md", "how-to.md", "obsidian-config.md", "to-do.md"}
+EXCLUDED_FILES = {"index.md", "brief.md", "how-to.md", "obsidian-config.md", "to-do.md"}
 
-# sorgenti dell'introduzione mostrata in home (pagina "about" vera e propria)
-HOME_INTRO = {
-    ("index.md", "20121208/introduzione.md", False),
-    ("index.en.md", "20121208/introduzione.en.md", True),
-}
+# sorgente dell'introduzione mostrata in home (pagina "about" vera e propria)
+HOME_INDEX = "index.md"
+HOME_INTRO = "20121208/introduzione.md"
 
-LINK_SENTENCE = {
-    "it": "*Disponibile anche in {link}*",
-    "en": "*Also available in {link}*",
-}
-LINK_TEXT = {"it": "English version", "en": "versione italiana"}
-
-# slug canonico (uguale in entrambe le lingue) -> etichetta mostrata nella
-# tabella dell'indice, per lingua
+# slug canonico di categoria -> etichetta mostrata nell'indice
 CATEGORY_LABELS = {
-    "about": {"it": "Chi sono", "en": "About"},
-    "analysis": {"it": "Analisi tecnica", "en": "Technical analysis"},
-    "guide": {"it": "Guida", "en": "Guide"},
-    "installation": {"it": "Installazione", "en": "Installation"},
-    "performance": {"it": "Performance", "en": "Performance"},
-    "project": {"it": "Progetto", "en": "Project"},
-    "release": {"it": "Release", "en": "Release"},
+    "about": "Chi sono",
+    "analysis": "Analisi tecnica",
+    "guide": "Guida",
+    "installation": "Installazione",
+    "performance": "Live performance",
+    "project": "Progetto",
+    "release": "Release",
 }
 
 
@@ -85,39 +74,20 @@ def first_image(text: str, directory: Path, root: Path) -> str:
     return posixpath.normpath(posixpath.join(directory.relative_to(root).as_posix(), url))
 
 
-def counterpart(rel_path: str, fields: dict) -> str:
-    """Percorso (relativo alla content root, con nome file) della traduzione."""
-    if "/" in rel_path:
-        directory, name = rel_path.rsplit("/", 1)
-    else:
-        directory, name = "", rel_path
-    stem = name.rsplit(".", 1)[0]
-    base = stem[:-3] if stem.endswith(".en") else stem
-    target = fields.get("translations", "").strip()
-    if not target:
-        return ""
-    filename = target if target.endswith(".md") else target + ".md"
-    return directory + "/" + filename if directory else filename
-
-
 def esc(s: str) -> str:
     return (s.replace("&", "&amp;").replace("<", "&lt;")
              .replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def build_cards(posts: dict, want_en: bool) -> str:
+def build_cards(posts: dict) -> str:
     """Indice della home: card con thumbnail, titolo, data e categorie."""
-    items = sorted(
-        (path, fields) for path, fields in posts.items()
-        if (path.rsplit("/", 1)[-1].rsplit(".", 1)[0].endswith(".en") == want_en)
-    )
-    items.sort(key=lambda p: p[1].get("date", ""), reverse=True)
+    items = sorted(posts.items(), key=lambda p: p[1].get("date", ""), reverse=True)
     cards = []
     for path, fields in items:
         title = fields.get("title", path)
         date = fields.get("date", "")
         cat = fields.get("category", "")
-        label = CATEGORY_LABELS.get(cat, {}).get("en" if want_en else "it", cat)
+        label = CATEGORY_LABELS.get(cat, cat)
         thumb = fields.get("thumb", "")
         link = path[:-3]  # via l'estensione .md
         if thumb:
@@ -144,33 +114,30 @@ def rewrite_rel(url: str, intro_dir: str) -> str:
 
 def inline_intro(text: str, intro_dir: str) -> str:
     """Corpo dell'introduzione pronto per la home: niente frontmatter,
-    niente frase "disponibile anche in", link/immagini riscritti in root."""
+    link/immagini riscritti in root."""
     intro = FM_RE.sub("", text, count=1).replace("\r\n", "\n")
-    intro = re.sub(r"^\*(Disponibile anche in|Also available in)\b.*\*\r?\n$", "", intro, flags=re.M)
     # riscrivo solo l'URL: la ")" del markdown originale resta dov'è
     return re.sub(r"(!?)\]\(([^)\s]+)", lambda m: f"{m.group(1)}]({rewrite_rel(m.group(2), intro_dir)}", intro)
 
 
 def rewrite_home(content: Path, posts: dict) -> bool:
     """Ricostruisce la home: introduzione + separatore + card dei post."""
-    changed = False
-    for index_name, intro_name, want_en in sorted(HOME_INTRO):
-        index_file = content / index_name
-        if not index_file.exists():
-            continue
-        intro = ""
-        intro_file = content / intro_name
-        if intro_file.exists():
-            intro = inline_intro(intro_file.read_text(encoding="utf-8"), posixpath.dirname(intro_name))
-        text = index_file.read_text(encoding="utf-8")
-        m = FM_RE.match(text)
-        fm = m.group(0) if m else ""
-        if not fm.endswith("\n"):
-            fm += "\n"
-        body = intro + ("\n\n" if intro else "") + "---\n\n" + build_cards(posts, want_en)
-        index_file.write_text(fm + "\n" + body, encoding="utf-8")
-        changed = True
-        print(f"  {index_name}: rigenerata (introduzione + {len(posts)} card candidate)")
+    index_file = content / HOME_INDEX
+    if not index_file.exists():
+        return False
+    intro = ""
+    intro_file = content / HOME_INTRO
+    if intro_file.exists():
+        intro = inline_intro(intro_file.read_text(encoding="utf-8"), posixpath.dirname(HOME_INTRO))
+    text = index_file.read_text(encoding="utf-8")
+    m = FM_RE.match(text)
+    fm = m.group(0) if m else ""
+    if not fm.endswith("\n"):
+        fm += "\n"
+    body = intro + ("\n\n" if intro else "") + "---\n\n" + build_cards(posts)
+    index_file.write_text(fm + "\n" + body, encoding="utf-8")
+    changed = True
+    print(f"  {HOME_INDEX}: rigenerata (introduzione + {len(posts)} card candidate)")
     return changed
 
 
@@ -207,46 +174,15 @@ def add_category_to_tags(content: Path, posts: dict) -> bool:
     return changed
 
 
-def add_language_links(content: Path, posts: dict) -> bool:
-    changed = False
-    for path, fields in posts.items():
-        other = counterpart(path, fields)
-        if other not in posts:
-            continue
-        lang = "en" if path.rsplit("/", 1)[-1].rsplit(".", 1)[0].endswith(".en") else "it"
-        sentence = LINK_SENTENCE[lang].format(link=f"[{LINK_TEXT[lang]}]({other.rsplit('/', 1)[-1]})")
-        post_file = content / path
-        lines = post_file.read_text(encoding="utf-8").splitlines(keepends=True)
-        insert_at = None
-        for i, ln in enumerate(lines):
-            if ln.startswith("# "):
-                insert_at = i + 1
-                break
-            if i > 0 and ln.startswith("---") and lines[0].startswith("---"):
-                # fine del frontmatter: punto di inserimento di riserva
-                if insert_at is None:
-                    insert_at = i + 1
-        if insert_at is None:
-            continue
-        if insert_at < len(lines) and lines[insert_at].strip() == sentence:
-            continue  # host già presente
-        lines.insert(insert_at, f"\n{sentence}\n")
-        post_file.write_text("".join(lines), encoding="utf-8")
-        changed = True
-        print(f"  {path}: link lingua aggiunto -> {other}")
-    return changed
-
-
 def strip_body_duplicates(content: Path, posts: dict) -> None:
     """Rimuove dal corpo le righe che il layout rende già: h1 = titolo
     (ArticleTitle), '*Pubblicato:*' (ContentMeta), '**Tag:**' (TagList)."""
-    pub_re = re.compile(r"^\*(Pubblicato|Published):\s*[\d-]+\*$")
+    pub_re = re.compile(r"^\*(Pubblicato):\s*[\d-]+\*$")
     tag_re = re.compile(r"^\*\*Tags?\*\*:")
     items = dict(posts)
-    for name in ("index.md", "index.en.md"):  # esclusi da collect_posts ma con h1/dati duplicati
-        index_file = content / name
-        if index_file.exists():
-            items[name] = parse_frontmatter(index_file.read_text(encoding="utf-8"))
+    index_file = content / HOME_INDEX  # escluso da collect_posts ma con h1/dati duplicati
+    if index_file.exists():
+        items[HOME_INDEX] = parse_frontmatter(index_file.read_text(encoding="utf-8"))
     for path, fields in items.items():
         post_file = content / path
         lines = post_file.read_text(encoding="utf-8").splitlines(keepends=True)
@@ -277,11 +213,9 @@ def main() -> int:
         print(f"not a directory: {content}")
         return 1
     posts = collect_posts(content)
-    n_en = len([p for p in posts if p.rsplit("/", 1)[-1].rsplit(".", 1)[0].endswith(".en")])
-    print(f"Trovati {len(posts)} post ({len(posts) - n_en} it, {n_en} en)")
+    print(f"Trovati {len(posts)} post")
     strip_body_duplicates(content, posts)
     add_category_to_tags(content, posts)
-    add_language_links(content, posts)
     rewrite_home(content, posts)
     return 0
 

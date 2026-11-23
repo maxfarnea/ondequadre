@@ -6,7 +6,6 @@ date: 2025-10-30
 status: final
 author: Max Farnea
 description: "MIDIbox64 come control surface: 32 ingressi analogici, 32 digitali, 32 LED di feedback. Costruita nel 2006, nata per collegarci sensori, riadattata vent'anni dopo"
-translations: midibox64.en
 ---
 # MIDIBOX64, UNA CONTROL SURFACE CHE ASPETTA DI DIVENTARE ALTRO
 

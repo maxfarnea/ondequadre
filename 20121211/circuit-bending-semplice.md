@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/bend3-sm.jpg
 description: "Con il termine circuit bending si indica l'arte di modificare in maniera creativa, attraverso semplici cortocircuiti, apparecchi elettronici a basso voltaggio o"
-translations: circuit-bending-semplice.en
 ---
 
 Con il termine **circuit bending** si indica l'arte di modificare in maniera creativa, attraverso semplici cortocircuiti, apparecchi elettronici a basso voltaggio o strumenti elettronici alimentati a pile, come giocattoli, tastiere, batterie elettroniche e effetti per chitarra, allo scopo di generare suoni inediti e curiosi, creare nuovi strumenti musicali e generici generatori di suono.

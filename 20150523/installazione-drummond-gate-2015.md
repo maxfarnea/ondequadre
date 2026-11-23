@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/Cattura.PNG
 description: "Questa installazione si basa su un software da me realizzato che permette di acquisire immagini in tempo reale tramite una webcam e, dopo averle elaborate in mo"
-translations: installazione-drummond-gate-2015.en
 ---
 # INSTALLAZIONE DRUMMOND GATE 2015
 

@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/cover.jpg
 description: "È passato molto tempo dall'ultima volta che ho realizzato un progetto musicale o che ho suonato live. Questo stesso blog, il mio sito o gli account sui social n"
-translations: drop-paths.en
 ---
 # DROP PATHS: UNA PAUSA DI RIFLESSIONE
 

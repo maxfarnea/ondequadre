@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/yt-placeholder.png
 description: "Ecco un altro 'avvistamento' della mia musica. Timo Vuorensola, il regista del film Iron Sky, ha usato la versione estesa di Contro il Mondo come commento sonor"
-translations: iron-sky-directors-diary.en
 ---
 # IRON SKY DIRECTOR'S DIARY
 

@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/yt-placeholder.png
 description: "Questo viaggio virtuale sulla Luna è nato quando ho scoperto 'Luna' di Pavel Klushantsev. Si tratta di un film/documentario russo del 1965 in bilico tra propaga"
-translations: concerto-virtuale-sulla-luna.en
 ---
 # CONCERTO VIRTUALE SULLA LUNA
 

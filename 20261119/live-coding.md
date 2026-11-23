@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/Sonic-Pi_9.png
 description: "Il live coding: eseguire musica scrivendo codice in diretta, davanti al pubblico, a schermo aperto. Il manifesto TOPLAP, algorave, Sonic Pi e i pattern generat"
-translations: live-coding.en
 ---
 # LIVE CODING, O QUANDO IL PROGRAMMA DIVENTA STRUMENTO
 

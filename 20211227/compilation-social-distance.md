@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/cover.jpg
 description: "mi sono accorto che un mio pezzo è stato inserito nel 2020 in una compilation di"
-translations: compilation-social-distance.en
 ---
 # COMPILATION SOCIAL DISTANCE
 

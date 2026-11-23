@@ -6,7 +6,6 @@ date: 2025-09-10
 status: final
 author: Max Farnea
 description: "Il MOS 6581, il chip sonoro del Commodore 64, al comando di un microcontrollore: MIDIbox SID, il synth autocostruito nel 2006 sulla piattaforma MIDIbox. I regist"
-translations: midibox-sid.en
 ---
 # MIDIBOX SID, IL CHIP DEL COMMODORE 64 IN UN SYNTH MIDI
 

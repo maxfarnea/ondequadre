@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/Uno_Orig.jpg
 description: "Dopo anni passati a programmare microcontrollori Motorola 68HC11 o Microchip PIC per progetti di robotica o musicali, la scoperta di Arduino è stata come una ve"
-translations: carillon-autogenerativo.en
 ---
 # UN CARILLON AUTOGENERATIVO CON ARDUINO
 

@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/DSCN5223.JPG
 description: "Avendo a disposizione alcuni hard disk guasti, ho voluto sfruttare il fatto che se si pilota con un segnale audio amplificato il solenoide del braccio delle tes"
-translations: hardiscofono.en
 ---
 # HARDISCOFONO
 

@@ -26,30 +26,17 @@ if ! grep -q 'CategoriesAndTags' quartz/components/index.ts; then
 fi
 perl -0pi -e 's#  right: \[\],#  right: [Component.CategoriesAndTags()],#g' quartz.layout.ts
 
-# 2. Sidebar: post recenti della lingua della pagina al posto dell'albero file
-perl -0pi -e 's#\QComponent.Explorer(),\E#Component.ConditionalRender({ component: Component.RecentNotes({ limit: 6, showTags: false, filter: (f) => f.slug !== "index" \&\& f.slug !== "introduzione" \&\& !f.slug?.endsWith(".en") }), condition: (page) => !(page.fileData.slug ?? "").endsWith(".en") }), Component.ConditionalRender({ component: Component.RecentNotes({ limit: 6, showTags: false, filter: (f) => f.slug?.endsWith(".en") \&\& f.slug !== "index.en" \&\& f.slug !== "introduzione.en" }), condition: (page) => (page.fileData.slug ?? "").endsWith(".en") }),#g' \
+# 2. Sidebar: post recenti (senza home e introduzione) al posto dell'albero file
+perl -0pi -e 's#\QComponent.Explorer(),\E#Component.RecentNotes({ limit: 6, showTags: false, filter: (f) => f.slug !== "index" \&\& f.slug !== "introduzione" }),#g' \
   quartz.layout.ts
-# stato preesistente (copie .preview già patchate): aggiunge le esclusioni introduzione
-if ! grep -q 'introduzione' quartz.layout.ts; then
-  sed -i 's|filter: (f) => f.slug !== "index" |filter: (f) => f.slug !== "index" \&\& f.slug !== "introduzione" |g' quartz.layout.ts
-  sed -i 's|filter: (f) => f.slug?.endsWith(".en") \&\& f.slug !== "index.en"|filter: (f) => f.slug?.endsWith(".en") \&\& f.slug !== "index.en" \&\& f.slug !== "introduzione.en"|g' quartz.layout.ts
-fi
 
 # 3. Pagina indice: niente titolo/data/tag al centro (la home e' solo
 #    introduzione + separatore + card, generata da generate_index.py)
-# (stato preesistente: ArticleTitle sempre attivo -> torna filtrato)
-perl -0pi -e 's#^    Component\.ConditionalRender\(\{ component: Component\.ArticleTitle\(\), condition: \(page\) => page\.fileData\.slug !== "index" && page\.fileData\.slug !== "index\.en" \}\),$#    Component.ArticleTitle(),#m' \
-  quartz.layout.ts
-perl -0pi -e 's#^    Component\.ArticleTitle\(\),\n    Component\.ContentMeta\(\),\n    Component\.TagList\(\),$#    Component.ConditionalRender({ component: Component.ArticleTitle(), condition: (page) => page.fileData.slug !== "index" \&\& page.fileData.slug !== "index.en" }),\n    Component.ConditionalRender({ component: Component.ContentMeta(), condition: (page) => page.fileData.slug !== "index" \&\& page.fileData.slug !== "index.en" }),\n    Component.ConditionalRender({ component: Component.TagList(), condition: (page) => page.fileData.slug !== "index" \&\& page.fileData.slug !== "index.en" }),#m' \
-  quartz.layout.ts
-# (stato preesistente: ArticleTitle gia' isolato con ContentMeta/TagList gia' filtrati)
-perl -0pi -e 's#^    Component\.ArticleTitle\(\),\n(?=    Component\.ConditionalRender\(\{ component: Component\.ContentMeta)#    Component.ConditionalRender({ component: Component.ArticleTitle(), condition: (page) => page.fileData.slug !== "index" \&\& page.fileData.slug !== "index.en" }),#m' \
+perl -0pi -e 's#^    Component\.ArticleTitle\(\),\n    Component\.ContentMeta\(\),\n    Component\.TagList\(\),$#    Component.ConditionalRender({ component: Component.ArticleTitle(), condition: (page) => page.fileData.slug !== "index" }),\n    Component.ConditionalRender({ component: Component.ContentMeta(), condition: (page) => page.fileData.slug !== "index" }),\n    Component.ConditionalRender({ component: Component.TagList(), condition: (page) => page.fileData.slug !== "index" }),#m' \
   quartz.layout.ts
 
 # 4. Titolo del sito in testa alla colonna sinistra, su tutte le pagine,
 #    con la grafia "| ONDE QUADRE |" (patch di PageTitle.tsx)
-perl -0pi -e 's#^\Q    Component.ConditionalRender({ component: Component.PageTitle(), condition: (page) => page.fileData.slug !== "index" && page.fileData.slug !== "index.en" }),\E$#    Component.PageTitle(),#m' \
-  quartz.layout.ts
 if ! grep -q '| ONDE QUADRE |' quartz/components/PageTitle.tsx; then
   perl -0pi -e 's#\Q      <a href={baseDir}>{title}</a>\E#      <a href={baseDir}>| ONDE QUADRE |</a>#' \
   quartz/components/PageTitle.tsx

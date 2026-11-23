@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/DSCN1388.JPG
 description: "Ecco un altro post dedicato a un dispositivo basilare per chi vuole sperimentare con l'elettronica nel contesto audio: l'Atari Punk Console (detta anche APC)."
-translations: atari-punk-console.en
 ---
 # ATARI PUNK CONSOLE
 

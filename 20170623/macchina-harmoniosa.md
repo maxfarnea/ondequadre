@@ -7,7 +7,6 @@ status: final
 author: Max Farnea
 cover: ../imgs/DSCN0414.JPG
 description: "Macchina Harmoniosa è un sequencer/arpeggiatore MIDI generativo basato su Arduino, con pattern a due tracce, morphing realtime verso ventuno scale e autogenera"
-translations: macchina-harmoniosa.en
 ---
 # MACCHINA HARMONIOSA, UN SEQUENCER MIDI GENERATIVO CON ARDUINO
 
