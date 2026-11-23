@@ -1,7 +1,7 @@
 ---
 title: IRON SKY DIRECTOR'S DIARY
 tags: [musica]
-category: analysis
+category: release
 date: 2024-08-19
 status: final
 author: Max Farnea

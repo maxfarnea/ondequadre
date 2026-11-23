@@ -1,7 +1,7 @@
 ---
 title: HARDISCOFONO
 tags: [suoni, sperimentazione, progetto, drone, fai da te, sintetizzatore, do it yourself, sperimentale, circuitbending, performance, glitch, autocostruzione, lofi, DIY, noise, elettroacustico, elettronica]
-category: performance
+category: project
 date: 2015-05-16
 status: final
 author: Max Farnea

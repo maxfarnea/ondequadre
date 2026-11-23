@@ -1,7 +1,7 @@
 ---
 title: MACCHINA HARMONIOSA, UN SEQUENCER MIDI GENERATIVO CON ARDUINO
 tags: [suoni, progetto, fai da te, do it yourself, download, sperimentale, autocostruzione, arduino, DIY, algoritmi, programmazione, elettronica, microcontrollori, MIDI, sequencer]
-category: release
+category: project
 date: 2017-06-23
 status: final
 author: Max Farnea
