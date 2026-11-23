@@ -9,8 +9,6 @@ cover: ../imgs/maxfarnea.jpg
 description: "Sono Max Farnea, e sono da sempre appassionato di musica, informatica ed elettronica... e tutte le loro reciproche contaminazioni."
 ---
 
-Ciao a tutti!
-
 ![](../imgs/maxfarnea.jpg)
 
 Sono Max Farnea, e sono da sempre appassionato di musica, informatica ed elettronica... e tutte le loro reciproche contaminazioni.  
