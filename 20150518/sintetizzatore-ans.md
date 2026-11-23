@@ -1,7 +1,7 @@
 ---
 title: SINTETIZZATORE ANS
 tags: [sintetizzatore, sperimentale, sperimentazione, elettronica, avanguardia, drone]
-category: analysis
+category: approfondimenti
 date: 2015-05-18
 status: final
 author: Max Farnea

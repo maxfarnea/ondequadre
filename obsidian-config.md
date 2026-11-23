@@ -17,7 +17,7 @@ ondequadre/
 ```yaml
 title: TITOLO DEL POST
 tags: [tag1, tag2]
-category: about | analysis | guide | installation | performance | project | release
+category: about | approfondimenti | coding | installation | live | project | release
 date: YYYY-MM-DD
 status: final
 author: Max Farnea
