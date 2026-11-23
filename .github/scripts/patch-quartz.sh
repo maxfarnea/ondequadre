@@ -241,18 +241,26 @@ cat >> quartz/styles/custom.scss <<'EOF'
     order: 2;
   }
 
+  // 3. La riga nativa .sidebar.right > * { max-height: 24rem } tronca la
+  //    nuvola tag: i tag oltre i 24rem sbordano sotto il box e il footer
+  //    (che inizia esattamente dove finisce il box) li copre. Senza limite
+  //    il box cresce con il contenuto e il footer sta sotto, davvero.
+  .page > #quartz-body .sidebar.right > * {
+    max-height: none;
+  }
+
   .page > #quartz-body footer {
     order: 3;
   }
 
-  // 3. Colonna centrale full width
+  // 4. Colonna centrale full width
   .page > #quartz-body .center,
   .page > #quartz-body .center > article {
     max-width: 100%;
     padding: 0;
   }
 
-  // 4. Uccide l'overflow orizzontale che rompeva le media query
+  // 5. Uccide l'overflow orizzontale che rompeva le media query
   html,
   body {
     overflow-x: hidden;
@@ -263,12 +271,12 @@ cat >> quartz/styles/custom.scss <<'EOF'
     overflow-wrap: break-word;
   }
 
-  // 5. Sfondo: il gradient "fixed" perde la copertura su mobile
+  // 6. Sfondo: il gradient "fixed" perde la copertura su mobile
   body {
     background: #1c1c1c; // tinta piatta, stesso grigio scuro
   }
 
-  // 6. Card: restano una sotto l'altra (come le vedi ora, che ti piacciono)
+  // 7. Card: restano una sotto l'altra (come le vedi ora, che ti piacciono)
   //    ma con thumbnail un po' meno monolitiche
   a.post-card .post-card-thumb {
     aspect-ratio: 16 / 9;
