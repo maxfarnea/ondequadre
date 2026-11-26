@@ -1,6 +1,6 @@
 ---
 title: MACCHINA HARMONIOSA, UN SEQUENCER MIDI GENERATIVO CON ARDUINO
-tags: [arduino, DIY, algoritmi, coding, elettronica, MIDI, arduino, generative]
+tags: [arduino, DIY, algoritmi, coding, elettronica, MIDI, arduino, microcontrollori, generative]
 category: project
 date: 2017-06-23
 status: final

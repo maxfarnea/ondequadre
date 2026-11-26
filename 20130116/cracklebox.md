@@ -1,6 +1,6 @@
 ---
 title: CRACKLEBOX
-tags: [suoni, sperimentazione, drone, circuitbending, glitch, sperimentale, lofi, DIY, noise, elettronica]
+tags: [suoni, sperimentazione, drone, circuitbending, glitch, lofi, DIY, noise, elettronica]
 category: project
 date: 2013-01-16
 status: final

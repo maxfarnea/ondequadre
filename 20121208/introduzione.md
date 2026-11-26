@@ -1,6 +1,6 @@
 ---
 title: INTRODUZIONE
-tags: [sperimentazione, elettronica, musica, coding]
+tags: [aboutme]
 category: maxfarnea
 date: 2012-12-08
 status: final

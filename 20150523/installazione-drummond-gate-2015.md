@@ -1,6 +1,6 @@
 ---
 title: INSTALLAZIONE DRUMMOND GATE 2015
-tags: [installazione, suoni, sperimentazione, sintetizzatore, performance, algoritmi, noise, processing, creativecoding, live]
+tags: [installazione, suoni, sperimentazione, synth, performance, algoritmi, noise, processing, creativecoding]
 category: installation
 date: 2015-05-23
 status: final

@@ -1,6 +1,6 @@
 ---
 title: GUIDA COMPLETA AL CIRCUIT BENDING (WORKSHOP)
-tags: [circuitbending, micromusic, glitch, DIY, workshop, sperimentazione, noise, guida]
+tags: [circuitbending, micromusic, glitch, DIY, sperimentazione, noise, guida]
 category: exploration
 date: 2016-07-12
 status: final

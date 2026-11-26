@@ -1,6 +1,6 @@
 ---
 title: INSTALLAZIONE PATH FESTIVAL 2014
-tags: [installazione, suoni, sperimentazione, drone, performance, creativecoding, arduino, DIY, generative, algoritmi, noise, elettronica, live]
+tags: [installazione, sperimentazione, drone, performance, creativecoding, arduino, generative, algoritmi, noise, elettronica]
 category: installation
 date: 2015-05-17
 status: final

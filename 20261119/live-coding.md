@@ -1,6 +1,6 @@
 ---
 title: LIVE CODING, O QUANDO IL PROGRAMMA DIVENTA STRUMENTO
-tags: [generative, algoritmi, coding, MIDI, synth, algorave]
+tags: [generative, algoritmi, coding, MIDI, synth]
 category: coding
 date: 2026-11-19
 status: final

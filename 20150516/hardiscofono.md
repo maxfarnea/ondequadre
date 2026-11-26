@@ -1,6 +1,6 @@
 ---
 title: HARDISCOFONO
-tags: [suoni, sperimentazione, drone, sintetizzatore, circuitbending, lofi, DIY, noise, elettronica]
+tags: [suoni, sperimentazione, drone, synth, circuitbending, lofi, DIY, noise, elettronica]
 category: project
 date: 2015-05-16
 status: final

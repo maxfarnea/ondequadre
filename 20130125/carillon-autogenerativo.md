@@ -1,6 +1,6 @@
 ---
 title: UN CARILLON AUTOGENERATIVO CON ARDUINO
-tags: [arduino, DIY, algoritmi, coding, elettronica, generative]
+tags: [arduino, DIY, algoritmi, coding, generative]
 category: project
 date: 2013-01-25
 status: final
