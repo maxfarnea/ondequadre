@@ -78,10 +78,14 @@ const TagContent: QuartzComponent = ({ fileData, allFiles }) => {
           const date = fmtDate(f.frontmatter?.date)
           const info = [date, label].filter(Boolean).join(" · ")
           const thumb = thumbs[f.slug!] ?? ""
+          // le thumb possono essere URL esterni o path assoluti: solo i path
+          // relativi alla content root vanno riprefissati con pathToRoot
+          const thumbSrc =
+            thumb.includes("://") || thumb.startsWith("/") ? thumb : joinSegments(root, thumb)
           return (
             <a class="post-card" href={resolveRelative(slug, f.slug! as FullSlug)} key={f.slug}>
               {thumb ? (
-                <img class="post-card-thumb" src={joinSegments(root, thumb)} alt="" />
+                <img class="post-card-thumb" src={thumbSrc} alt="" />
               ) : (
                 <div class="post-card-thumb post-card-nothumb">
                   <span>{title.slice(0, 1)}</span>
