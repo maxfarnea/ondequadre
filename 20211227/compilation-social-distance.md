@@ -1,19 +1,12 @@
 ---
 title: COMPILATION SOCIAL DISTANCE
-tags: [compilation, album, musica]
-category: release
+tags: [compilation, musica]
+category: music
 date: 2021-12-27
 status: final
 author: Max Farnea
 cover: ../imgs/cover.jpg
 description: "mi sono accorto che un mio pezzo è stato inserito nel 2020 in una compilation di"
----
-# COMPILATION SOCIAL DISTANCE
-
-*Pubblicato: 2021-12-27*
-
-**Tag:** compilation, album, musica
-
 ---
 
 Guardando il mio profilo

@@ -1,19 +1,12 @@
 ---
 title: HARDISCOFONO
-tags: [suoni, sperimentazione, progetto, drone, fai da te, sintetizzatore, do it yourself, sperimentale, circuitbending, performance, glitch, autocostruzione, lofi, DIY, noise, elettroacustico, elettronica]
+tags: [suoni, sperimentazione, drone, sintetizzatore, circuitbending, lofi, DIY, noise, elettronica]
 category: project
 date: 2015-05-16
 status: final
 author: Max Farnea
 cover: ../imgs/DSCN5223.JPG
 description: "Avendo a disposizione alcuni hard disk guasti, ho voluto sfruttare il fatto che se si pilota con un segnale audio amplificato il solenoide del braccio delle tes"
----
-# HARDISCOFONO
-
-*Pubblicato: 2015-05-16*
-
-**Tag:** suoni, sperimentazione, progetto, drone, fai da te, sintetizzatore, do it yourself, sperimentale, circuitbending, performance, glitch, autocostruzione, lofi, DIY, noise, elettroacustico, elettronica
-
 ---
 
 Avendo a disposizione alcuni hard disk guasti, ho voluto sfruttare il fatto che se si pilota con un segnale audio amplificato il solenoide del braccio delle testine, le vibrazioni di quest'ultimo tramite i dischi metallici, rendono udibile il segnale audio.

@@ -1,19 +1,12 @@
 ---
 title: IRON SKY DIRECTOR'S DIARY
-tags: [musica]
+tags: [video, musica]
 category: release
 date: 2024-08-19
 status: final
 author: Max Farnea
 cover: ../imgs/yt-placeholder.png
 description: "Ecco un altro 'avvistamento' della mia musica. Timo Vuorensola, il regista del film Iron Sky, ha usato la versione estesa di Contro il Mondo come commento sonor"
----
-# IRON SKY DIRECTOR'S DIARY
-
-*Pubblicato: 2024-08-19*
-
-**Tag:** musica
-
 ---
 
 Ecco un altro '*avvistamento*' della mia musica. **Timo Vuorensola**, il regista del film **Iron Sky**, ha usato la versione estesa di **Contro il Mondo** come commento sonoro in un episodio dei suoi Director's Diary proprio di Iron Sky. 

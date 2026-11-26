@@ -1,19 +1,12 @@
 ---
 title: LA PIATTAFORMA MIDIBOX
-tags: [sintetizzatore, do it yourself, DIY, MIDI, programmazione, elettronica, microcontrollori, fai da te]
-category: project
+tags: [DIY, MIDI, elettronica, coding]
+category: exploration
 date: 2016-06-16
 status: final
 author: Max Farnea
 cover: ../imgs/DSCN1229.JPG
 description: "La piattaforma MIDIbox è un progetto hardware e software opensource di Thorsten Klose per la autocostruzione di sistemi MIDI (processori, controller, sequencer"
----
-# LA PIATTAFORMA MIDIBOX
-
-*Pubblicato: 2016-06-16*
-
-**Tag:** sintetizzatore, do it yourself, DIY, MIDI, programmazione, elettronica, microcontrollori, fai da te
-
 ---
 
 ![](../imgs/DSCN1229.JPG)

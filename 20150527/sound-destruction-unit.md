@@ -1,19 +1,12 @@
 ---
 title: SOUND DESTRUCTION UNIT
-tags: [suoni, progetto, drone, fai da te, sintetizzatore, do it yourself, glitch, sperimentale, circuitbending, DIY, noise, elettronica]
+tags: [suoni, drone, synth, glitch, sperimentazione, circuitbending, DIY, noise, elettronica]
 category: project
 date: 2015-05-27
 status: final
 author: Max Farnea
 cover: ../imgs/11038475_10152428226607824_3756785312400077684_n.jpg
 description: "The Sound Destruction Unit è un sistema composto da svariati circuiti audio autocostruiti (generatore di pattern, oscillatori, cracklebox, filtri, body contacts"
----
-# SOUND DESTRUCTION UNIT
-
-*Pubblicato: 2015-05-27*
-
-**Tag:** suoni, progetto, drone, fai da te, sintetizzatore, do it yourself, glitch, sperimentale, circuitbending, DIY, noise, elettronica
-
 ---
 
 **The Sound Destruction Unit** è un sistema composto da svariati circuiti audio autocostruiti (generatore di pattern, oscillatori, cracklebox, filtri, body contacts), assemblati in una valigetta amplificata e interconnessi da prese unipolari come i synth modulari analogici. Ogni controllo principale è esposto tramite un'interfaccia per essere pilotato tramite segnali TTL esterni e potenziometri digitali gestiti via MIDI grazie ad un'interfaccia sempre autocostruita.

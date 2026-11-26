@@ -1,7 +1,7 @@
 ---
 title: INTRODUZIONE
-tags: [sperimentazione, elettronica]
-category: about
+tags: [sperimentazione, elettronica, musica, coding]
+category: maxfarnea
 date: 2012-12-08
 status: final
 author: Max Farnea

@@ -1,19 +1,12 @@
 ---
 title: CRACKLEBOX
-tags: [suoni, circuit, sperimentazione, drone, fai da te, do it yourself, circuitbending, glitch, sperimentale, autocostruzione, lofi, DIY, noise, elettronica, avanguardia]
+tags: [suoni, sperimentazione, drone, circuitbending, glitch, sperimentale, lofi, DIY, noise, elettronica]
 category: project
 date: 2013-01-16
 status: final
 author: Max Farnea
 cover: ../imgs/yt-placeholder.png
 description: "Con il termine Cracklebox (o Kraakdoos) si intende un tipo particolare di dispositivo audio sperimentale introdotto da Michel Waisvisz a metà degli anni 70. Mic"
----
-# CRACKLEBOX
-
-*Pubblicato: 2013-01-16*
-
-**Tag:** suoni, circuit, sperimentazione, drone, fai da te, do it yourself, circuitbending, glitch, sperimentale, autocostruzione, lofi, DIY, noise, elettronica, avanguardia
-
 ---
 
 Con il termine **Cracklebox** (o **Kraakdoos**) si intende un tipo particolare di dispositivo audio sperimentale introdotto da **Michel Waisvisz** a metà degli anni 70. Michel Waisvisz insieme a **Reed Ghazala** può essere considerato a tutti gli effetti il pioniere del circuit bending e infatti la Cracklebox è un chiaro esempio applicativo di questa tecnica.  

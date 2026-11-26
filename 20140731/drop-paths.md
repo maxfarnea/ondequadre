@@ -1,19 +1,12 @@
 ---
 title: "DROP PATHS: UNA PAUSA DI RIFLESSIONE"
-tags: [download, album, musica, elettronica]
-category: release
+tags: [album, musica]
+category: music
 date: 2014-07-31
 status: final
 author: Max Farnea
 cover: ../imgs/cover.jpg
 description: "È passato molto tempo dall'ultima volta che ho realizzato un progetto musicale o che ho suonato live. Questo stesso blog, il mio sito o gli account sui social n"
----
-# DROP PATHS: UNA PAUSA DI RIFLESSIONE
-
-*Pubblicato: 2014-07-31*
-
-**Tag:** download, album, musica, elettronica
-
 ---
 
 È passato molto tempo dall'ultima volta che ho realizzato un progetto musicale o che ho suonato live. Questo stesso blog, il mio sito o gli account sui social network sono stati molto carenti di novità negli ultimi due anni circa.  

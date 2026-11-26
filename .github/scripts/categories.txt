@@ -4,10 +4,10 @@
 #
 # Formato: <slug>: <etichetta>   (righe vuote e # sono commenti)
 
-about: Chi sono
-approfondimenti: Approfondimenti
+exploration: Esplorazione
 coding: Creative Coding
-installation: Installazione
+installation: Installazioni
 live: Live
-project: Progetto
-release: Release
+music: Musica
+maxfarnea: MaxFarnea
+project: Progetti

@@ -1,19 +1,12 @@
 ---
 title: ATARI PUNK CONSOLE
-tags: [suoni, circuit, sperimentazione, drone, fai da te, sintetizzatore, do it yourself, glitch, sperimentale, autocostruzione, lofi, DIY, noise, elettronica]
+tags: [suoni, sperimentazione, drone, lofi, DIY, noise, elettronica]
 category: project
 date: 2013-03-09
 status: final
 author: Max Farnea
 cover: ../imgs/DSCN1388.JPG
 description: "Ecco un altro post dedicato a un dispositivo basilare per chi vuole sperimentare con l'elettronica nel contesto audio: l'Atari Punk Console (detta anche APC)."
----
-# ATARI PUNK CONSOLE
-
-*Pubblicato: 2013-03-09*
-
-**Tag:** suoni, circuit, sperimentazione, drone, fai da te, sintetizzatore, do it yourself, glitch, sperimentale, autocostruzione, lofi, DIY, noise, elettronica
-
 ---
 
 Ecco un altro post dedicato a un dispositivo basilare per chi vuole sperimentare con l'elettronica nel contesto audio: l'**Atari Punk Console** (detta anche APC).  

@@ -1,19 +1,12 @@
 ---
 title: INSTALLAZIONE PATH FESTIVAL 2014
-tags: [installazione, suoni, sperimentazione, progetto, drone, fai da te, do it yourself, performance, sperimentale, autocostruzione, arduino, DIY, concerto, algoritmi, noise, musica, elettronica, live]
+tags: [installazione, suoni, sperimentazione, drone, performance, creativecoding, arduino, DIY, generative, algoritmi, noise, elettronica, live]
 category: installation
 date: 2015-05-17
 status: final
 author: Max Farnea
 cover: ../imgs/1836807_10152014996402824_2854117898163133967_o.png
 description: "Per l'edizione 2014 del Path Festival ho preparato un'installazione interattiva costituita da un manichino che indossa la mia maschera optoelettronica basata su"
----
-# INSTALLAZIONE PATH FESTIVAL 2014
-
-*Pubblicato: 2015-05-17*
-
-**Tag:** installazione, suoni, sperimentazione, progetto, drone, fai da te, do it yourself, performance, sperimentale, autocostruzione, arduino, DIY, concerto, algoritmi, noise, musica, elettronica, live
-
 ---
 
 Per l'edizione 2014 del [Path Festival](http://www.pathfestival.it/) ho preparato un'installazione interattiva costituita da un manichino che indossa la mia maschera optoelettronica basata su Atari Punk Console (di cui ho già parlato [qui](../20130309/atari-punk-console.md)), alla quale ho abbinato un sequencer LED autogenerativo realizzato con Arduino.

@@ -1,19 +1,12 @@
 ---
 title: UN CARILLON AUTOGENERATIVO CON ARDUINO
-tags: [suoni, progetto, fai da te, do it yourself, download, sperimentale, autocostruzione, arduino, DIY, algoritmi, programmazione, elettronica, microcontrollori]
+tags: [arduino, DIY, algoritmi, coding, elettronica, generative]
 category: project
 date: 2013-01-25
 status: final
 author: Max Farnea
 cover: ../imgs/Uno_Orig.jpg
 description: "Dopo anni passati a programmare microcontrollori Motorola 68HC11 o Microchip PIC per progetti di robotica o musicali, la scoperta di Arduino è stata come una ve"
----
-# UN CARILLON AUTOGENERATIVO CON ARDUINO
-
-*Pubblicato: 2013-01-25*
-
-**Tag:** suoni, progetto, fai da te, do it yourself, download, sperimentale, autocostruzione, arduino, DIY, algoritmi, programmazione, elettronica, microcontrollori
-
 ---
 
 Dopo anni passati a programmare microcontrollori Motorola 68HC11 o Microchip PIC per progetti di robotica o musicali, la scoperta di Arduino è stata come una ventata di ossigeno fresco.  

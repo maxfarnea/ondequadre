@@ -1,19 +1,12 @@
 ---
 title: GUIDA COMPLETA AL CIRCUIT BENDING (WORKSHOP)
-tags: [circuit, circuitbending, sperimentale, micromusic, glitch, DIY, workshop, sperimentazione, noise, guida, tutorial]
-category: approfondimenti
+tags: [circuitbending, micromusic, glitch, DIY, workshop, sperimentazione, noise, guida]
+category: exploration
 date: 2016-07-12
 status: final
 author: Max Farnea
 cover: ../imgs/DSCN0370.JPG
 description: "Durante il Path Festival 2015 a Verona, ho tenuto un workshop sul circuit bending presso Interzona."
----
-# GUIDA COMPLETA AL CIRCUIT BENDING (WORKSHOP)
-
-*Pubblicato: 2016-07-12*
-
-**Tag:** circuit, circuitbending, sperimentale, micromusic, glitch, DIY, workshop, sperimentazione, noise, guida, tutorial
-
 ---
 
 Durante il Path Festival 2015 a Verona, ho tenuto un workshop sul circuit bending presso [Interzona](http://www.izona.it/).

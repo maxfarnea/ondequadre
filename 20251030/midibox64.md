@@ -1,18 +1,11 @@
 ---
 title: MIDIBOX64, UNA CONTROL SURFACE CHE ASPETTA DI DIVENTARE ALTRO
-tags: [do it yourself, DIY, MIDI, programmazione, elettronica, microcontrollori, fai da te, controller, control surface]
+tags: [DIY, MIDI, coding, elettronica, microcontrollori]
 category: project
 date: 2025-10-30
 status: final
 author: Max Farnea
 description: "MIDIbox64 come control surface: 32 ingressi analogici, 32 digitali, 32 LED di feedback. Costruita nel 2006, nata per collegarci sensori, riadattata vent'anni dopo"
----
-# MIDIBOX64, UNA CONTROL SURFACE CHE ASPETTA DI DIVENTARE ALTRO
-
-*Pubblicato: 2025-10-30*
-
-**Tag:** do it yourself, DIY, MIDI, programmazione, elettronica, microcontrollori, fai da te, controller, control surface
-
 ---
 
 ![](../imgs/DSCN1658.JPG)

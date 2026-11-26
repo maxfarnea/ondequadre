@@ -1,19 +1,12 @@
 ---
 title: INSTALLAZIONE DRUMMOND GATE 2015
-tags: [installazione, suoni, sperimentazione, progetto, sintetizzatore, multimediale, performance, sperimentale, algoritmi, noise, processing, musica, programmazione, live]
+tags: [installazione, suoni, sperimentazione, sintetizzatore, performance, algoritmi, noise, processing, creativecoding, live]
 category: installation
 date: 2015-05-23
 status: final
 author: Max Farnea
 cover: ../imgs/Cattura.PNG
 description: "Questa installazione si basa su un software da me realizzato che permette di acquisire immagini in tempo reale tramite una webcam e, dopo averle elaborate in mo"
----
-# INSTALLAZIONE DRUMMOND GATE 2015
-
-*Pubblicato: 2015-05-23*
-
-**Tag:** installazione, suoni, sperimentazione, progetto, sintetizzatore, multimediale, performance, sperimentale, algoritmi, noise, processing, musica, programmazione, live
-
 ---
 
 Questa installazione si basa su un software da me realizzato che permette di acquisire immagini in tempo reale tramite una webcam e, dopo averle elaborate in modo da enfatizzare le parti in movimento, le trasforma in uno spettro audio tramite una scansione verticale, secondo un processo che imita il funzionamento di un sintetizzatore ANS.  

@@ -1,19 +1,12 @@
 ---
 title: TAMAGOTCHI MANNARO
-tags: [suoni, circuit, drone, fai da te, sintetizzatore, do it yourself, sperimentale, circuitbending, glitch, autocostruzione, lofi, DIY, noise, elettronica]
+tags: [suoni, drone, sperimentazione, circuitbending, glitch, lofi, DIY, noise, elettronica]
 category: project
 date: 2013-03-12
 status: final
 author: Max Farnea
 cover: ../imgs/DSCN3689.JPG
 description: "Con questo post voglio presentare uno dei miei droni meglio riusciti e più sfruttati in un contesto live: il Tamagotchi Mannaro."
----
-# TAMAGOTCHI MANNARO
-
-*Pubblicato: 2013-03-12*
-
-**Tag:** suoni, circuit, drone, fai da te, sintetizzatore, do it yourself, sperimentale, circuitbending, glitch, autocostruzione, lofi, DIY, noise, elettronica
-
 ---
 
 Con questo post voglio presentare uno dei miei droni meglio riusciti e più sfruttati in un contesto live: il **Tamagotchi Mannaro**. 

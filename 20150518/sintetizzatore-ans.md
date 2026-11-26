@@ -1,19 +1,12 @@
 ---
 title: SINTETIZZATORE ANS
-tags: [sintetizzatore, sperimentale, sperimentazione, elettronica, avanguardia, drone]
-category: approfondimenti
+tags: [synth, drone]
+category: exploration
 date: 2015-05-18
 status: final
 author: Max Farnea
 cover: ../imgs/ANS_Synthesiser.jpg
 description: "Il sintetizzatore ANS è una macchina sperimentale sviluppata dall'ingegnere russo Evgeny Murzin tra il 1937 e il 1957; il suo nome è composto dalle iniziali del"
----
-# SINTETIZZATORE ANS
-
-*Pubblicato: 2015-05-18*
-
-**Tag:** sintetizzatore, sperimentale, sperimentazione, elettronica, avanguardia, drone
-
 ---
 
 Il sintetizzatore ANS è una macchina sperimentale sviluppata dall'ingegnere russo **Evgeny Murzin** tra il 1937 e il 1957; il suo nome è composto dalle iniziali del compositore russo **Alexander Nikolayevich Scriabin** a cui essa è dedicata.   
