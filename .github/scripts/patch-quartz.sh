@@ -15,6 +15,8 @@ sed -i 's|pageTitle: .*|pageTitle: "Onde Quadre",|' quartz.config.ts
 sed -i 's|locale: .*|locale: "it-IT",|' quartz.config.ts
 sed -i 's|baseUrl: .*|baseUrl: "maxfarnea.github.io",|' quartz.config.ts
 sed -i 's|markdownLinkResolution: "absolute"|markdownLinkResolution: "shortest"|' quartz.config.ts
+# niente tooltip di anteprima sui link interni
+sed -i 's|enablePopovers: true|enablePopovers: false|' quartz.config.ts
 
 # --- Layout ------------------------------------------------------------------
 # 1. Niente colonna destra (graph, toc, backlinks) in tutti i layout
@@ -335,6 +337,7 @@ fi
 # --- Controprove: fallisce loud se una patch non ha preso --------------------
 grep -q 'pageTitle: "Onde Quadre"' quartz.config.ts
 grep -q 'locale: "it-IT"' quartz.config.ts
+! grep -q 'enablePopovers: true' quartz.config.ts
 ! grep -q 'Component.Graph' quartz.layout.ts
 ! grep -q 'Component.Explorer' quartz.layout.ts
 grep -q 'ConditionalRender({ component: Component.ArticleTitle' quartz.layout.ts
