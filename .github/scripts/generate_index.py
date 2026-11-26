@@ -7,11 +7,14 @@ Obsidian); questo script, eseguito solo in CI prima del build Quartz:
      tag) e toglie i blocchi dataview residui (Quartz non li esegue);
   2. aggiunge lo slug di categoria ai tag, per avere la pagina /tags/<category>;
   3. ricostruisce la home: contenuto di 20121208/introduzione.md, un
-     separatore e un indice a card (thumbnail, titolo, data, categoria).
+     separatore e un indice a card (thumbnail, titolo, data, categoria);
+  4. scrive post-thumbs.json (slug -> prima immagine), usato dal componente
+     TagContent patchato per le card delle pagine tag.
 
 Uso: python3 generate_index.py <dir-content-di-quartz>
 """
 
+import json
 import posixpath
 import re
 import sys
@@ -110,6 +113,16 @@ def build_cards(posts: dict) -> str:
             f'</div></a>'
         )
     return '<div class="post-cards">\n' + "\n".join(cards) + "\n</div>\n"
+
+
+def write_thumb_manifest(posts: dict) -> None:
+    """Manifest slug -> thumbnail (prima immagine del corpo), nello stesso
+    formato delle card della home. Viene copiato in quartz/components/ da
+    patch-quartz.sh e importato da TagContent.tsx per le pagine tag a card."""
+    manifest = {path[:-3]: fields.get("thumb", "") for path, fields in posts.items()}
+    out = SCRIPT_DIR / "post-thumbs.json"
+    out.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"  post-thumbs.json: {len(manifest)} voci")
 
 
 def rewrite_rel(url: str, intro_dir: str) -> str:
@@ -224,6 +237,7 @@ def main() -> int:
     strip_body_duplicates(content, posts)
     add_category_to_tags(content, posts)
     rewrite_home(content, posts)
+    write_thumb_manifest(posts)
     return 0
 
 

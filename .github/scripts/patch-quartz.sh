@@ -46,6 +46,11 @@ assert m, "patch-quartz: mappa CATEGORY_LABELS in CategoriesAndTags.tsx non trov
 src.write_text(txt[:m.start()] + block + txt[m.end():], encoding="utf-8")
 print("patch-quartz: categorie caricate da categories.txt")
 PYEOF
+# 1c. Pagina tag a card (stesso grigliato della home): sostituisce il
+#     TagContent stock di Quartz e copia il manifest slug->thumbnail
+#     generato da generate_index.py
+cp -f "$SCRIPT_DIR/quartz-custom/TagContent.tsx" quartz/components/pages/TagContent.tsx
+cp -f "$SCRIPT_DIR/post-thumbs.json" quartz/components/post-thumbs.json
 if ! grep -q 'CategoriesAndTags' quartz/components/index.ts; then
   sed -i 's|import TagList from "./TagList"|import TagList from "./TagList"\nimport CategoriesAndTags from "./CategoriesAndTags"|' quartz/components/index.ts
   sed -i 's|^  TagList,$|  TagList,\n  CategoriesAndTags,|' quartz/components/index.ts
@@ -132,6 +137,17 @@ a.post-card {
     font-size: 0.8rem;
     opacity: 0.7;
   }
+}
+
+// Nota "N post" e indice tag nelle pagine di filtro
+.tag-filter-note {
+  opacity: 0.6;
+  margin-bottom: 1.2rem;
+}
+
+ul.tags-index {
+  list-style: none;
+  padding: 0;
 }
 EOF
 fi
@@ -330,6 +346,10 @@ grep -q 'introduzione' quartz.layout.ts
 grep -q 'export { default as CategoriesAndTags' quartz/components/index.ts || grep -q '^  CategoriesAndTags,$' quartz/components/index.ts
 grep -q 'const CATEGORY_LABELS: Record<string, string> = {' quartz/components/CategoriesAndTags.tsx
 ! grep -q 'Analisi tecnica' quartz/components/CategoriesAndTags.tsx  # la mappa default e' stata sostituita
+grep -q 'export const CATEGORY_LABELS' quartz/components/CategoriesAndTags.tsx
+grep -q 'post-cards' quartz/components/pages/TagContent.tsx  # TagContent stock sostituito
+grep -q 'post-thumbs' quartz/components/pages/TagContent.tsx
+[ -s quartz/components/post-thumbs.json ]
 grep -q 'Massimiliano Farnea' quartz/components/Footer.tsx
 ! grep -q 'Discord Community' quartz.layout.ts
 grep -q '#ffcc00' quartz.config.ts

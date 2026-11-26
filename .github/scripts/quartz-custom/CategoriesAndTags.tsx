@@ -4,8 +4,9 @@ import { classNames } from "../util/lang"
 
 // Etichette degli slug di categoria: a build time patch-quartz.sh sostituisce
 // questa mappa con il contenuto di .github/scripts/categories.txt (unica
-// fonte, condivisa con generate_index.py per le card della home).
-const CATEGORY_LABELS: Record<string, string> = {
+// fonte, condivisa con generate_index.py per le card della home). Esportata
+// perche' TagContent.tsx la riusa nelle card delle pagine tag.
+export const CATEGORY_LABELS: Record<string, string> = {
   about: "Chi sono",
   analysis: "Analisi tecnica",
   guide: "Guida",
