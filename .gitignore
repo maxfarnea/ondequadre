@@ -1,3 +1,5 @@
 task*.py
 .obsidian/
 .preview/
+# generato a build time da generate_index.py
+.github/scripts/post-thumbs.json
