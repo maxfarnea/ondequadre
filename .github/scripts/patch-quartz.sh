@@ -328,7 +328,8 @@ grep -q 'introduzione' quartz.layout.ts
 [ "$(grep -c 'Component.ArticleTitle' quartz.layout.ts)" -eq 2 ]  # content layout (filtrato) + list layout
 [ "$(grep -c 'Component.CategoriesAndTags()' quartz.layout.ts)" -eq 2 ]  # right di entrambi i layout
 grep -q 'export { default as CategoriesAndTags' quartz/components/index.ts || grep -q '^  CategoriesAndTags,$' quartz/components/index.ts
-grep -q 'Chi sono' quartz/components/CategoriesAndTags.tsx
+grep -q 'const CATEGORY_LABELS: Record<string, string> = {' quartz/components/CategoriesAndTags.tsx
+! grep -q 'Analisi tecnica' quartz/components/CategoriesAndTags.tsx  # la mappa default e' stata sostituita
 grep -q 'Massimiliano Farnea' quartz/components/Footer.tsx
 ! grep -q 'Discord Community' quartz.layout.ts
 grep -q '#ffcc00' quartz.config.ts
