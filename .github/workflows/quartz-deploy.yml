@@ -64,7 +64,7 @@ jobs:
         working-directory: quartz
         run: npx quartz build
 
-      - name: Deploy su maxfarnea/maxfarnea (GitHub Pages)
+      - name: Deploy su maxfarnea/maxfarnea.github.io (GitHub Pages)
         uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.QUARTZ_DEPLOY_TOKEN }}
