@@ -209,8 +209,28 @@ print("patch-quartz: tema midnight applicato a quartz.config.ts")
 PYEOF
 perl -0pi -e 's#^ +\{ Component: Component\.Darkmode\(\) \},\n##mg' quartz.layout.ts
 
-# 8. Stili midnight sullo sfondo, la larghezza colonna, hr e blockquote
-if ! grep -q 'Tema midnight' quartz/styles/custom.scss; then
+# 8. Tema esterno da quartz-themes (opt-in: QUARTZ_THEME=<nome>, es. 80s-neon)
+#    oppure stili midnight di default. Il tema e' il file _index.scss del repo
+#    saberzero1/quartz-themes (il publish.css nella stessa cartella e' per
+#    Obsidian Publish e non va usato).
+if [ -n "${QUARTZ_THEME:-}" ]; then
+  echo "patch-quartz: tema esterno '$QUARTZ_THEME'"
+  mkdir -p quartz/styles/themes
+  curl -fsSL -o quartz/styles/themes/_index.scss \
+    "https://raw.githubusercontent.com/saberzero1/quartz-themes/master/themes/${QUARTZ_THEME}/_index.scss"
+  if ! grep -q '@use "sass' quartz/styles/themes/_index.scss; then
+    echo "patch-quartz: download del tema '$QUARTZ_THEME' fallito" >&2
+    exit 1
+  fi
+  if ! grep -q '@use "./themes";' quartz/styles/custom.scss; then
+    sed -i 's#@use "./base.scss";#@use "./base.scss";\n@use "./themes";#' quartz/styles/custom.scss
+  fi
+  # un blocco midnight residuo di run precedenti coprirebbe il tema: lo tolgo
+  perl -0pi -e 's#\n\n// Tema midnight:.*?(?=\n// ---- Mobile ----|\z)##s' quartz/styles/custom.scss
+elif ! grep -q 'Tema midnight' quartz/styles/custom.scss; then
+  # tema esterno di un run precedente: via, e si ripristina il midnight
+  rm -rf quartz/styles/themes
+  sed -i '/@use "\.\/themes";/d' quartz/styles/custom.scss
 cat >> quartz/styles/custom.scss <<'EOF'
 
 // Tema midnight: sfondo sfumato, colonna stretta, hr tratteggiato, blockquote oro

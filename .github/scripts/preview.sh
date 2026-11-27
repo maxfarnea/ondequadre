@@ -1,17 +1,25 @@
 #!/usr/bin/env bash
 # Preview locale del sito, replicando i passi del workflow quartz-deploy.
 #
-#   .github/scripts/preview.sh            build singola -> .preview/quartz/public
-#   .preview/quartz/public  (output)
+#   .github/scripts/preview.sh            build singola -> <workspace>/quartz/public
+#   <workspace>/quartz/public  (output)
 #   .github/scripts/preview.sh --serve    dev server con hot-reload su :8080
 #
+# La workspace (Node portabile + clone Quartz) sta fuori dal repo, di default
+# in %LOCALAPPDATA%/ondequadre-preview: D:\archive e' sincronizzato con
+# Proton Drive, che vedendo la workspace cancellata/rifatta ad ogni build
+# genera copie "# Name clash #" e "# Delete conflict #". Per ricollocarla:
+#   ONDEQUADRE_PREVIEW_DIR=/percorso .github/scripts/preview.sh
+#
 # La prima esecuzione scarica Quartz v4.5.2 e le dipendenze (~1-2 minuti);
-# le successive riusano la copia in .preview/.
+# le successive riusano la copia nella workspace.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 
-QDIR=.preview/quartz
-PORTABLE=.preview/node-v22.14.0-win-x64
+WSROOT="${ONDEQUADRE_PREVIEW_DIR:-${LOCALAPPDATA:-$HOME/AppData/Local}/ondequadre-preview}"
+command -v cygpath >/dev/null 2>&1 && WSROOT="$(cygpath -u "$WSROOT")"
+QDIR="$WSROOT/quartz"
+PORTABLE="$WSROOT/node-v22.14.0-win-x64"
 QTAG=v4.5.2
 
 # --- Node >= 22 (richiesto da Quartz) --------------------------------------
@@ -23,13 +31,16 @@ node_ok() {
 if node_ok; then
   :
 elif [ -x "$PORTABLE/node.exe" ]; then
-  export PATH="$PWD/$PORTABLE:$PATH"
+  export PATH="$PORTABLE:$PATH"
 elif command -v curl >/dev/null 2>&1; then
   echo "Scarico Node 22 portabile in $PORTABLE ..."
-  mkdir -p .preview "$(dirname "$PORTABLE")"
-  curl -sL -o .preview/node.zip https://nodejs.org/dist/v22.14.0/node-v22.14.0-win-x64.zip
-  python -c "import zipfile; zipfile.ZipFile('.preview/node.zip').extractall('.preview')"
-  export PATH="$PWD/$PORTABLE:$PATH"
+  mkdir -p "$WSROOT"
+  curl -sL -o "$WSROOT/node.zip" https://nodejs.org/dist/v22.14.0/node-v22.14.0-win-x64.zip
+  python - "$WSROOT/node.zip" "$WSROOT" <<'EOF'
+import sys, zipfile
+zipfile.ZipFile(sys.argv[1]).extractall(sys.argv[2])
+EOF
+  export PATH="$PORTABLE:$PATH"
 else
   echo "Serve Node >= 22: installalo o prova con curl disponibile." >&2
   exit 1
