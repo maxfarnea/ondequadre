@@ -1,7 +1,7 @@
 ---
 title: MIDISPEAK, UNA PORTA MIDI PER IL GRILLO PARLANTE
 tags: [circuitbending, DIY, elettronica, MIDI, chiptune, micromusic, glitch, lofi]
-category: progetto
+category: project
 date: 2026-03-21
 status: final
 author: Max Farnea
