@@ -5,7 +5,7 @@
 # Formato: <slug>: <etichetta>   (righe vuote e # sono commenti)
 
 exploration: Esplorazione
-coding: Creative Coding
+coding: Codice Creativo
 installation: Installazioni
 live: Live
 music: Musica

@@ -22,3 +22,14 @@ Sintetizzatori e vocoder mi hanno fatto appassionare della musica, ho studiato p
 Ho iniziato a programmare il VIC-20 a 13 anni, poi sono passato all'MSX e all'Amiga, e quando ha iniziato a diffondersi Internet programmare è diventato il mio lavoro.
 
 Sono sempre con il saldatore in mano pronto a costruire circuiti e invalidare garanzie.
+
+#### LA MIA MUSICA
+
+* [Bandcamp](https://maxfarnea.bandcamp.com)
+* [SoundCloud](https://soundcloud.com/maxfarnea)
+
+#### I MIEI SOCIAL
+
+* [Livello Segreto](https://livellosegreto.it/@maxfarnea)
+* [Instagram](https://www.instagram.com/technoshewrote)
+* [YouTube](https://www.youtube.com/@maxfarnea)

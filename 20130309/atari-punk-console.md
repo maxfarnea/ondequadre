@@ -31,8 +31,17 @@ Come la Cracklebox precedentemente descritta, l'APC si basa su un circuito molto
 ![](../imgs/DSCN4804.JPG)
   
 
-Si può introdurre una variante utilizzando fotoresistenze al posto di uno o entrambi i potenziometri che controllano la frequenza e la larghezza dell'impulso. Ho utilizzato APC così modificate in un paio di progetti sperimentali, che descriverò nei miei prossimi post, dei quali vi lascio però qui un'anteprima.  
+Si può introdurre una variante utilizzando fotoresistenze al posto di uno o entrambi i potenziometri che controllano la frequenza e la larghezza dell'impulso. 
+
+Ho applicato questo approccio nella mia Atari Punk Mask
+
+![](../imgs/DSCN1396.JPG)
+
+[![](https://img.youtube.com/vi/Dme6biO6pSo/hqdefault.jpg)](https://www.youtube.com/watch?v=Dme6biO6pSo)
+
+
+In seguito ho aggiunto un sequencer luminoso montato dentro a un cuore di plastica. Muovendo il cuore davanti alle fotoresistenza mentre i LED lampeggiano si possono creare interessanti modulazioni.
+
+![](../imgs/DSCN4377.JPG)
 
 [![](https://img.youtube.com/vi/7sQdhjkmRXU/hqdefault.jpg)](https://www.youtube.com/watch?v=7sQdhjkmRXU)
-
-[![](https://img.youtube.com/vi/Ru5Rmfn3zzY/hqdefault.jpg)](https://www.youtube.com/watch?v=Ru5Rmfn3zzY)

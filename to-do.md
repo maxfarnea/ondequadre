@@ -58,7 +58,7 @@ Cercare di fare altri video
 
 #### 20150523 Installazione Drummond Gate
 
-Far analizzare codice e fare video
+fare video. L'analisi del codice dice di verificare
 
 
 ### POST DA FARE
